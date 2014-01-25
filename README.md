@@ -1,7 +1,7 @@
 Inkscape grid maker
 ===================
 
-This Inkscape extension will generate a grid (guides) with **equal width columns and gutters**, or rows and gutters.
+This [Inkscape](http://inkscape.org/) extension will generate a grid (guides) with **equal width columns and gutters**, or rows and gutters.
 
 It is an alternative to positioning paths and converting them to guides.
 
