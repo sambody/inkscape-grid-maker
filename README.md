@@ -34,7 +34,7 @@ Restart or open Inkscape.
 
 ### Usage
 
-You will find the Guides Grid Maker under menu **Extensions > Render > Guides grid maker**. (so *not* Guides creator, *not* Grid).
+You will find the Guides Grid Maker under menu **Extensions > Render > Guides grid maker**. (so *not* Guides creator, and *not* Grid).
 
 Change the settings (columns, columns width, etc), you can use the Live preview to preview it. If you're happy with the settings, click Apply before clicking Close.
 
@@ -46,8 +46,8 @@ That's it.
 ### To do (no promises...)
 
 - when gutter set to zero, there should be single guides, not double guides;
-- Align grid in relation to a selected bounding box, instead of the whole page. For now, use Align with offset;
 - allow the choice to include (or not) the outer gutters/guides;
+- Align grid in relation to a selected bounding box, instead of the whole page ?
 - other units than pixels ?
 - should the guide be allowed to be on non-rounded positions ? (maybe for print ?)
 - merge this extension with the Guides Creator extension ?
