@@ -39,9 +39,9 @@ Restart or open Inkscape.
 
 You will find the Guides Grid Maker under menu **Extensions > Render > Guides grid maker**. (so *not* Guides creator, and *not* Grid).
 
-Change the settings (columns, columns width, etc), you can use the Live preview to preview it. If you're happy with the settings, click Apply before clicking Close.
+Change the settings, click Apply. Close, done.
 
-Note: you can choose to automatically delete all existing guides before applying the new guides.
+Or change the settings, show Live Preview of the changes, adjust, click Apply. Close, done.
 
 That's it.
 
@@ -71,9 +71,11 @@ The Grid Maker extension generates guides, helpful for example in *designing* we
 
 ### Other Inkscape grid extensions 
 
+Other extensions made by other people:
+
 - [Inkscape Guides Creator](http://code.google.com/p/inkscape-guides-creator/) - dividing your document into equal parts (no gutters) (this extension is part of Inkscape core)
 - [Inkscape grids](https://github.com/cds4/inkscape-grids) - Triangular and perspective grid creation extensions for inkscape
-- [inkscape-gs](https://github.com/Ale-/inkscape-gs) - create guides with margins (gutters actually), with guides in middle of gutters. Grid defined by boundaries of the document.
+- [inkscape-gs](https://github.com/Ale-/inkscape-gs) - create guides with margins (gutters actually), with guides in middle of gutters. Grid defined by the boundaries of the document.
 
 ### To do (no promises...)
 
@@ -81,13 +83,10 @@ The Grid Maker extension generates guides, helpful for example in *designing* we
 - allow the choice to include (or not) the outer gutters/guides;
 - Align grid in relation to a selected bounding box, instead of the whole page ?
 - Show total width when changing settings, if possible.
-- Show offset option only when choosing Alignment with offset (or find better solution)
-- Option to add guide in the middle of each gutter (if gutter width is even number)
-- Ability to set total width ?
-- other units than pixels ? Milimeters ? (see other Grid Creator extension...)
-- should the guide be allowed to be on non-rounded positions ? (maybe for print ?)
-- merge this extension with the Guides Creator extension ?
-- other ideas ?
+- ~~Show offset option only when choosing Alignment with offset (or find better solution)~~ Offset is now available to all alignments
+- Option to add guide in the middle of each gutter (if gutter width is even number...) - for now, you can add center gutters separately by generating a new grid
+- Ability to set total width ? And set gutter width, with automatic column width (no rounded pixels...)
+- other units than pixels ? Milimeters ? (see other Grid Creator extension...) Should the guide be allowed to be on non-rounded positions ? (maybe for print ?)
 
 ### Thank you
 
