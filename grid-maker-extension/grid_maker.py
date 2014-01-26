@@ -39,6 +39,7 @@ _ = gettext.gettext
 
 def printDebug(string):
         inkex.debug(_(str(string)))
+        # use:  printDebut(someVariable)
 
 def showError(string):
         inkex.errormsg(_(str(string)))
@@ -219,10 +220,6 @@ class Grid_Maker(inkex.Effect):
 
                 # total height (rows and gutters)
                 total_row_height = rows*row_height + (rows+1)*row_gut
-
-                # getting edges coordinates
-                # h_orientation = '0,' + str(round(canvas_width,4))
-                # v_orientation = str(round(canvas_height,4)) + ',0'
 
                 if (tab == "\"columns\""):
 

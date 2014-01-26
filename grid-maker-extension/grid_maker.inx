@@ -9,12 +9,12 @@
 					<param name="columns"  type="int"   min="1" max="500" _gui-text="Number of columns">12</param>
 					<param name="column_width"  type="int"   min="1" max="5000" _gui-text="Column width">50</param>
 					<param name="column_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter width">10</param>
-					<param name="column_alignment" type="enum" appearance="minimal" _gui-text="Alignment in relation to page">
-						<item value="left">Left aligned</item>
-						<item value="centered">Centered</item>
-						<item value="right">Right aligned</item>
+					<param name="column_alignment" type="optiongroup" _gui-text="Alignment in relation to page">
+						<_option value="left">Left aligned</_option>
+						<_option value="centered">Centered</_option>
+						<_option value="right">Right aligned</_option>
 					</param>
-					<param name="column_offset"  type="int"   min="-5000" max="5000" _gui-text="Left offset of grid">0</param>
+					<param name="column_offset"  type="int"   min="-5000" max="5000" _gui-text="Extra left offset of grid">0</param>
 					<param name="delete_existing_guides" type="boolean" _gui-text="Delete existing guides">false</param>
 				</page>
 				<page name="rows" _gui-text="Rows">
@@ -22,16 +22,16 @@
 					<param name="rows"  type="int"   min="1" max="500" _gui-text="Number of rows">12</param>
 					<param name="row_height"  type="int"   min="1" max="5000" _gui-text="Row height">50</param>
 					<param name="row_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter height">10</param>
-					<param name="row_alignment" type="enum" appearance="minimal" _gui-text="Alignment in relation to page">
-						<item value="top">Top aligned</item>
-						<item value="centered">Centered</item>
-						<item value="bottom">Bottom aligned</item>
+					<param name="row_alignment" type="optiongroup" _gui-text="Alignment in relation to page">
+						<_option value="top">Top aligned</_option>
+						<_option value="centered">Centered</_option>
+						<_option value="bottom">Bottom aligned</_option>
 					</param>
-					<param name="row_offset"  type="int"   min="-5000" max="5000" _gui-text="Top offset of grid">0</param>
+					<param name="row_offset"  type="int"   min="-5000" max="5000" _gui-text="Extra top offset of grid">0</param>
 					<param name="delete_existing_guides2" type="boolean" _gui-text="Delete existing guides">false</param>
 				</page>
 				<page name="help" _gui-text="Help">
-				      <param name="help_text" type="description">This extension allows you to create a grid: a series of guides to make equal columns (or rows) with gutters - the spacing between columns. Choose the Columns tab for vertical guides, the Rows tab for horizontal guides. The generated grid can be aligned to one of the borders of the page, or centered to the page, or have a custom offset in relation to the left or top border. Gutter width can be zero (but this will generate double guides). The page offset can be a negative number. The exact position of the guides are set in pixels (rounded).</param>
+				      <param name="help_text" type="description">This extension allows you to create a grid - a series of guides to make equal width columns (or rows) with gutters - the spacing between columns. The generated grid can be aligned in relation to the borders of the page, or centered to the page, and can have an extra custom offset, which can be negative. Gutter width can be zero. The exact position of the guides are set in pixels (rounded values).</param>
 				</page>
 		</param>
 	<effect>
