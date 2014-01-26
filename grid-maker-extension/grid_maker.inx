@@ -13,9 +13,8 @@
 						<item value="left">Left aligned</item>
 						<item value="centered">Centered</item>
 						<item value="right">Right aligned</item>
-						<item value="custom">Left aligned with offset...</item>
 					</param>
-					<param name="column_offset"  type="int"   min="-5000" max="5000" _gui-text="Distance from left page border (only when aligned with offset)">0</param>
+					<param name="column_offset"  type="int"   min="-5000" max="5000" _gui-text="Left offset of grid">0</param>
 					<param name="delete_existing_guides" type="boolean" _gui-text="Delete existing guides">false</param>
 				</page>
 				<page name="rows" _gui-text="Rows">
@@ -27,9 +26,8 @@
 						<item value="top">Top aligned</item>
 						<item value="centered">Centered</item>
 						<item value="bottom">Bottom aligned</item>
-						<item value="custom">Top aligned with offset...</item>
 					</param>
-					<param name="row_offset"  type="int"   min="-5000" max="5000" _gui-text="Distance from top page border (only when aligned with offset)">0</param>
+					<param name="row_offset"  type="int"   min="-5000" max="5000" _gui-text="Top offset of grid">0</param>
 					<param name="delete_existing_guides2" type="boolean" _gui-text="Delete existing guides">false</param>
 				</page>
 				<page name="help" _gui-text="Help">

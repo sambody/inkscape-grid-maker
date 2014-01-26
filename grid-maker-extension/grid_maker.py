@@ -90,7 +90,7 @@ def deleteAllGuides(document):
         for element in children:
                 nv.remove(element)
 
-class Grid_Creator(inkex.Effect):
+class Grid_Maker(inkex.Effect):
 
         def __init__(self):
                 """
@@ -112,13 +112,13 @@ class Grid_Creator(inkex.Effect):
                 self.OptionParser.add_option('--column_alignment',
                         action = 'store',type = 'string',
                         dest = 'column_alignment',default = 'centered',
-                        help = 'Alignment of columns')
+                        help = 'Alignment of the columns in relation to the document')
 
                 # Define string option "--column_offset"
                 self.OptionParser.add_option('--column_offset',
                         action = 'store',type = 'string',
                         dest = 'column_offset',default = '0',
-                        help = 'Space between grid and left page border')
+                        help = 'Offset distance from the left')
 
                 # Define string option "--columns"
                 self.OptionParser.add_option('--columns',
@@ -136,7 +136,7 @@ class Grid_Creator(inkex.Effect):
                 self.OptionParser.add_option('--column_gutter',
                         action = 'store',type = 'string',
                         dest = 'column_gutter',default = 0,
-                        help = 'Spacing between columns (gutter)')
+                        help = 'Spacing between columns')
 
                 # Define boolean option "--delete_existing_guides"
                 self.OptionParser.add_option('--delete_existing_guides',
@@ -150,13 +150,13 @@ class Grid_Creator(inkex.Effect):
                 self.OptionParser.add_option('--row_alignment',
                         action = 'store',type = 'string',
                         dest = 'row_alignment',default = 'centered',
-                        help = 'Alignment of rows')
+                        help = 'Alignment of rows in relation to the document')
 
                 # Define string option "--row_offset"
                 self.OptionParser.add_option('--row_offset',
                         action = 'store',type = 'string',
                         dest = 'row_offset',default = '0',
-                        help = 'Space between grid and top page border')
+                        help = 'Offset distance from the top')
 
                 # Define string option "--rows"
                 self.OptionParser.add_option('--rows',
@@ -174,7 +174,7 @@ class Grid_Creator(inkex.Effect):
                 self.OptionParser.add_option('--row_gutter',
                         action = 'store',type = 'string',
                         dest = 'row_gutter',default = 0,
-                        help = 'Spacing between rows (gutter)')
+                        help = 'Spacing between rows')
 
                 # Define boolean option "--delete_existing_guides"
                 self.OptionParser.add_option('--delete_existing_guides2',
@@ -198,7 +198,7 @@ class Grid_Creator(inkex.Effect):
 
                 # second tab - rows
                 row_alignment = self.options.row_alignment
-                row_offset_from_top = int(self.options.row_offset)
+                row_offset = int(self.options.row_offset)
                 rows = int(self.options.rows)
                 row_height = int(self.options.row_height)
                 row_gut = int(self.options.row_gutter)
@@ -220,9 +220,6 @@ class Grid_Creator(inkex.Effect):
                 # total height (rows and gutters)
                 total_row_height = rows*row_height + (rows+1)*row_gut
 
-                # row offset from top converted to offset from bottom (origin is at left BOTTOM)
-                row_offset = canvas_height - total_row_height - row_offset_from_top
-
                 # getting edges coordinates
                 # h_orientation = '0,' + str(round(canvas_width,4))
                 # v_orientation = str(round(canvas_height,4)) + ',0'
@@ -233,25 +230,21 @@ class Grid_Creator(inkex.Effect):
                         if (delete_existing):
                                 deleteAllGuides(self.document)
 
-                        # Set horizontal shift depending on grid alignment
+                        # Set horizontal shift (starting position for drawing) depending on grid alignment
                         if (col_alignment == 'centered'):
 
-                                hor_shift = round(canvas_width/2) - round(total_col_width/2)
+                                hor_start = round(canvas_width/2) - round(total_col_width/2) + col_offset
 
                         if (col_alignment == 'left'):
 
-                                hor_shift = 0
+                                hor_start = col_offset
 
                         if (col_alignment == 'right'):
 
-                                hor_shift = canvas_width - total_col_width
-
-                        if (col_alignment == 'custom'):
-
-                                hor_shift = col_offset
+                                hor_start = canvas_width - total_col_width + col_offset
 
                         # create column guides with column_spacings
-                        drawColumnGuides(cols,col_width,col_gut,nv,hor_shift)
+                        drawColumnGuides(cols,col_width,col_gut,nv,hor_start)
 
                 elif (tab == "\"rows\""):
 
@@ -259,30 +252,26 @@ class Grid_Creator(inkex.Effect):
                         if (delete_existing2):
                                 deleteAllGuides(self.document)
 
-                        # Set vertical shift depending on grid alignment
-                        if (row_alignment == 'centered'):
-
-                                vert_shift = round(canvas_height/2) - round(total_row_height/2)
-
+                        # Set vertical shift depending on grid alignment (0,0 is at BOTTOM left of document)
                         if (row_alignment == 'top'):
 
-                                vert_shift = canvas_height - total_row_height
+                                vert_start = round(canvas_height) - total_row_height - row_offset
+
+                        if (row_alignment == 'centered'):
+
+                                vert_start = round(canvas_height/2) - round(total_row_height/2) - row_offset
 
                         if (row_alignment == 'bottom'):
 
-                                vert_shift = 0
+                                vert_start =  -row_offset
 
-                        if (row_alignment == 'custom'):
-
-                                vert_shift = row_offset
-
-                        # create row guides
-                        drawRowGuides(rows,row_height,row_gut,nv,vert_shift)
+                        # create row guides (draw bottom up)
+                        drawRowGuides(rows,row_height,row_gut,nv,vert_start)
 
 
 
 # Create effect instance and apply it.
-effect = Grid_Creator()
+effect = Grid_Maker()
 effect.affect()
 
 ## end of file grid_maker.py ##

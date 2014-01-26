@@ -16,9 +16,10 @@ Example:
 ### Features
 
 - Define number of columns, column width and gutter width to generate a grid;
-- Gutter width can be set to zero (but this creates double guides, sorry)
-- Choose to align the grid in relation to the page: left aligned, centered, right aligned, or left aligned with an offset (a distance from the left border); this offset can be negative;
-- Same with rows (horizontal guides)
+- Gutter width can be set to zero (but this creates double guides, sorry);
+- Choose to align the grid in relation to the page: left aligned, centered or right aligned;
+- On top of this alignment, you can set an offset from to the right (for columns), or down (for rows); this offset can be negative;
+- Same with rows - horizontal guides with gutters and offset;
 - Option to delete all existing guides before generating the new guides
 - Live preview to test different widths
 
