@@ -6,9 +6,9 @@
 		<param name="tab" type="notebook">
 				<page name="columns" _gui-text="Columns">
 					<param name="help_text1" type="description">Generate guides for equal columns grid</param>
-					<param name="column_number"  type="int"   min="1" max="500" _gui-text="Number of columns">12</param>
+					<param name="columns"  type="int"   min="1" max="500" _gui-text="Number of columns">12</param>
 					<param name="column_width"  type="int"   min="1" max="5000" _gui-text="Column width">50</param>
-					<param name="column_spacing"  type="int"   min="0" max="1000" _gui-text="Gutter width">10</param>
+					<param name="column_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter width">10</param>
 					<param name="column_alignment" type="enum" appearance="minimal" _gui-text="Alignment in relation to page">
 						<item value="left">Left aligned</item>
 						<item value="centered">Centered</item>
@@ -20,9 +20,9 @@
 				</page>
 				<page name="rows" _gui-text="Rows">
 					<param name="help_text2" type="description">Generate guides for equal rows</param>
-					<param name="row_number"  type="int"   min="1" max="500" _gui-text="Number of rows">12</param>
+					<param name="rows"  type="int"   min="1" max="500" _gui-text="Number of rows">12</param>
 					<param name="row_height"  type="int"   min="1" max="5000" _gui-text="Row height">50</param>
-					<param name="row_spacing"  type="int"   min="0" max="1000" _gui-text="Gutter height">10</param>
+					<param name="row_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter height">10</param>
 					<param name="row_alignment" type="enum" appearance="minimal" _gui-text="Alignment in relation to page">
 						<item value="top">Top aligned</item>
 						<item value="centered">Centered</item>

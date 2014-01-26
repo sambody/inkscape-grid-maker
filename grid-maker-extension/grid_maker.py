@@ -43,34 +43,34 @@ def printDebug(string):
 def showError(string):
         inkex.errormsg(_(str(string)))
 
-def drawColumnGuides(column_number,column_width,column_spacing,parent,horizontal_shift=0):
+def drawColumnGuides(columns,column_width,column_gutter,parent,horizontal_shift=0):
 
         # vertical guides
         orientation = "1,0"
 
-        for i in range(0,column_number+1):
+        for i in range(0,columns+1):
 
                 #draw left guide of each column
-                position1 = str(horizontal_shift + i*(column_spacing+column_width)) + ",0"
+                position1 = str(horizontal_shift + i*(column_gutter+column_width)) + ",0"
                 createGuide(position1,orientation,parent)
 
                 #draw right guide of each column
-                position2 = str(horizontal_shift + i*(column_spacing+column_width) + column_spacing) + ",0"
+                position2 = str(horizontal_shift + i*(column_gutter+column_width) + column_gutter) + ",0"
                 createGuide(position2,orientation,parent)
 
-def drawRowGuides(row_number,row_height,row_spacing,parent,vertical_shift=0):
+def drawRowGuides(rows,row_height,row_gutter,parent,vertical_shift=0):
 
         # horizontal guides
         orientation = "0,1"
 
-        for i in range(0,row_number+1):
+        for i in range(0,rows+1):
 
                 #draw top guide of each row (note: start with "0," - unlike columns)
-                position1 =  "0," + str(vertical_shift + i*(row_spacing+row_height))
+                position1 =  "0," + str(vertical_shift + i*(row_gutter+row_height))
                 createGuide(position1,orientation,parent)
 
                 #draw bottom guide of each row
-                position2 = "0," + str(vertical_shift + i*(row_spacing+row_height) + row_spacing)
+                position2 = "0," + str(vertical_shift + i*(row_gutter+row_height) + row_gutter)
                 createGuide(position2,orientation,parent)
 
 def createGuide(position,orientation,parent):
@@ -120,10 +120,10 @@ class Grid_Creator(inkex.Effect):
                         dest = 'column_offset',default = '0',
                         help = 'Space between grid and left page border')
 
-                # Define string option "--column_number"
-                self.OptionParser.add_option('--column_number',
+                # Define string option "--columns"
+                self.OptionParser.add_option('--columns',
                         action = 'store',type = 'string',
-                        dest = 'column_number',default = 0,
+                        dest = 'columns',default = 0,
                         help = 'Number of columns')
 
                 # Define string option "--column_width"
@@ -132,10 +132,10 @@ class Grid_Creator(inkex.Effect):
                         dest = 'column_width',default = 0,
                         help = 'Width of each column')
 
-                # Define string option "--column_spacing"
-                self.OptionParser.add_option('--column_spacing',
+                # Define string option "--column_gutter"
+                self.OptionParser.add_option('--column_gutter',
                         action = 'store',type = 'string',
-                        dest = 'column_spacing',default = 0,
+                        dest = 'column_gutter',default = 0,
                         help = 'Spacing between columns (gutter)')
 
                 # Define boolean option "--delete_existing_guides"
@@ -158,10 +158,10 @@ class Grid_Creator(inkex.Effect):
                         dest = 'row_offset',default = '0',
                         help = 'Space between grid and top page border')
 
-                # Define string option "--row_number"
-                self.OptionParser.add_option('--row_number',
+                # Define string option "--rows"
+                self.OptionParser.add_option('--rows',
                         action = 'store',type = 'string',
-                        dest = 'row_number',default = 0,
+                        dest = 'rows',default = 0,
                         help = 'Number of rows')
 
                 # Define string option "--row_height"
@@ -170,10 +170,10 @@ class Grid_Creator(inkex.Effect):
                         dest = 'row_height',default = 0,
                         help = 'Width of each row')
 
-                # Define string option "--row_spacing"
-                self.OptionParser.add_option('--row_spacing',
+                # Define string option "--row_gutter"
+                self.OptionParser.add_option('--row_gutter',
                         action = 'store',type = 'string',
-                        dest = 'row_spacing',default = 0,
+                        dest = 'row_gutter',default = 0,
                         help = 'Spacing between rows (gutter)')
 
                 # Define boolean option "--delete_existing_guides"
@@ -191,17 +191,17 @@ class Grid_Creator(inkex.Effect):
                 # first tab - columns
                 col_alignment = self.options.column_alignment
                 col_offset = int(self.options.column_offset)
-                cols = int(self.options.column_number)
+                cols = int(self.options.columns)
                 col_width = int(self.options.column_width)
-                col_gut = int(self.options.column_spacing)
+                col_gut = int(self.options.column_gutter)
                 delete_existing = self.options.delete_existing_guides
 
                 # second tab - rows
                 row_alignment = self.options.row_alignment
                 row_offset_from_top = int(self.options.row_offset)
-                row_number = int(self.options.row_number)
+                rows = int(self.options.rows)
                 row_height = int(self.options.row_height)
-                row_gut = int(self.options.row_spacing)
+                row_gut = int(self.options.row_gutter)
                 delete_existing2 = self.options.delete_existing_guides2
 
                 # getting parent tag of the guides
@@ -218,7 +218,7 @@ class Grid_Creator(inkex.Effect):
                 total_col_width = cols*col_width + (cols+1)*col_gut
 
                 # total height (rows and gutters)
-                total_row_height = row_number*row_height + (row_number+1)*row_gut
+                total_row_height = rows*row_height + (rows+1)*row_gut
 
                 # row offset from top converted to offset from bottom (origin is at left BOTTOM)
                 row_offset = canvas_height - total_row_height - row_offset_from_top
@@ -277,7 +277,7 @@ class Grid_Creator(inkex.Effect):
                                 vert_shift = row_offset
 
                         # create row guides
-                        drawRowGuides(row_number,row_height,row_gut,nv,vert_shift)
+                        drawRowGuides(rows,row_height,row_gut,nv,vert_shift)
 
 
 
