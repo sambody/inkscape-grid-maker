@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Inkscape Grid Maker by sambody</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Inkscape Grid Maker</h1>
+          <h2>Inkscape extension to generate grids: guides defining columns and gutters.</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/sambody/inkscape-grid-maker/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/sambody/inkscape-grid-maker/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/sambody/inkscape-grid-maker" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <h1>
+<a name="inkscape-grid-maker" class="anchor" href="#inkscape-grid-maker"><span class="octicon octicon-link"></span></a>Inkscape grid maker</h1>
+
+<p>This <a href="http://inkscape.org/">Inkscape</a> extension will generate a grid (guides) with <strong>equal width columns and gutters</strong>, or rows and gutters.</p>
+
+<blockquote>
+<p>In graphic design, a <strong>grid</strong> is a structure (usually two-dimensional) made up of a series of intersecting straight (vertical, horizontal, and angular) or curved guide lines used to structure content. The grid serves as an armature on which a designer can organize graphic elements (images, glyphs, paragraphs) in a rational, easy to absorb manner. - <a href="http://en.wikipedia.org/wiki/Grid_%28graphic_design%29">Wikipedia</a></p>
+</blockquote>
+
+<p>It was derived from the Inkscape Guide Creator extension. It was conceived as a tool for grids in designing websites in Inkscape. The guides are therefore positioned using pixels, and use rounded numbers (they are set on the pixel). Not tested with other units.</p>
+
+<p>It is an alternative to positioning paths and converting them to guides, or to using the Grids in the Document Properties.</p>
+
+<p>Example:</p>
+
+<p><img src="https://github.com/sambody/inkscape-grid-maker/raw/master/readme-img/inkscape-gridmaker.png" alt="grid maker in action"></p>
+
+<h3>
+<a name="features" class="anchor" href="#features"><span class="octicon octicon-link"></span></a>Features</h3>
+
+<ul>
+<li>Define number of columns, column width and gutter width to generate a grid;</li>
+<li>Gutter width can be set to zero (but this creates double guides, sorry);</li>
+<li>Choose to align the grid in relation to the page: left aligned, centered or right aligned;</li>
+<li>On top of this alignment, you can set an offset from to the right (for columns), or down (for rows); this offset can be negative;</li>
+<li>Same with rows - horizontal guides with gutters and offset;</li>
+<li>Option to delete all existing guides before generating the new guides</li>
+<li>Live preview to test different widths</li>
+</ul><h3>
+<a name="how-to-install-the-extension" class="anchor" href="#how-to-install-the-extension"><span class="octicon octicon-link"></span></a>How to install the extension</h3>
+
+<ol>
+<li>Download zip archive from current site (github) to your computer;</li>
+<li>Unzip (extract) the archive on your computer;</li>
+<li><p>Open it. In the folder grid-maker-extension, you wil find two files: <strong>grid_maker.inx</strong> and <strong>grid_maker.py</strong>. Copy these two files into your Inkscape extensions folder:</p></li>
+</ol><ul>
+<li>on Windows: "C:\Program Files\Inkscape\share\extensions"</li>
+<li>on Linux: " ~/.config/inkscape/extensions" (where "~" is /home/yourusername/)</li>
+<li>on OS X: "/Applications/Inkscape.app/Contents/Resources/extensions" </li>
+</ul><p>Restart or open Inkscape.</p>
+
+<h3>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h3>
+
+<p>You will find the Guides Grid Maker under menu <strong>Extensions &gt; Render &gt; Guides grid maker</strong>. (so <em>not</em> Guides creator, and <em>not</em> Grid).</p>
+
+<p>Change the settings, click Apply. Close, done.</p>
+
+<p>Or change the settings, show Live Preview of the changes, adjust, click Apply. Close, done.</p>
+
+<p>That's it.</p>
+
+<h3>
+<a name="tips" class="anchor" href="#tips"><span class="octicon octicon-link"></span></a>Tips</h3>
+
+<p>Setting columns width equal to gutter width, you will have a series of equidistant guides (equally spaced). Which is an alternative to the Grids under Document Properties.</p>
+
+<p>You can generate multiple grids, just be sure to uncheck "<em>Delete existing guides</em>". </p>
+
+<p>Need guides in the middle of your gutters? After generating the columns, generate a new grid with gutters set to zero, column width set to original column width + gutter width.</p>
+
+<p>You can generate several grids side by side (for side by side web pages for example), using the <em>Alignment with offset</em>. Just add a big offset (= distance to left border of your document).</p>
+
+<p>No need for these outer gutters/guides? Just delete those two guides manually.</p>
+
+<p>Need a baseline grid in addition to the generated columns ? Make a new Grid under Document Properties instead of this extension.</p>
+
+<h3>
+<a name="other-grid-related-tools-for-web-design" class="anchor" href="#other-grid-related-tools-for-web-design"><span class="octicon octicon-link"></span></a>Other grid related tools for web design</h3>
+
+<p>Online grid generators and previewers - I sometimes use them to get the right widths <em>before</em> using my extension: </p>
+
+<ul>
+<li><a href="http://www.29digital.net/grid/">grid calculator</a></li>
+<li>
+<a href="http://grids.heroku.com/">variable grid system</a> - can actually generate css classes, just input the same numbers you used for designing your grid (fluid and fixed grid)</li>
+<li>
+<a href="Grid%20calculator%20and%20generator">grid calculator and generator</a> - set a fixed total width, give a range of column/gutter width, get possible combinations</li>
+</ul><p>The Grid Maker extension generates guides, helpful for example in <em>designing</em> websites. However, it does <em>not</em> create the css - you will have to do that yourself. Some ready made tools and frameworks that can help with grid based websites (in addition to learning css!): <a href="http://grids.heroku.com/">variable grid system</a>, <a href="http://getbootstrap.com/">bootstrap</a>, <a href="http://foundation.zurb.com/">foundation</a>, <a href="http://susy.oddbird.net/">susy</a>  , and <a href="css%20grid%20framework">many others</a>... or build your own...</p>
+
+<h3>
+<a name="to-do-no-promises" class="anchor" href="#to-do-no-promises"><span class="octicon octicon-link"></span></a>To do (no promises...)</h3>
+
+<ul>
+<li>when gutter set to zero, there should be single guides, not double guides;</li>
+<li>allow the choice to include (or not) the outer gutters/guides;</li>
+<li>Align grid in relation to a selected bounding box, instead of the whole page ?</li>
+<li>Show total width when changing settings, if possible.</li>
+<li>
+<del>Show offset option only when choosing Alignment with offset (or find better solution)</del> Offset is now available to all alignments</li>
+<li>Option to add guide in the middle of each gutter (if gutter width is even number...) - for now, you can add center gutters separately by generating a new grid</li>
+<li>Ability to set total width ? And set gutter width, with automatic column width (no rounded pixels...)</li>
+<li>other units than pixels ? Milimeters ? (see other Grid Creator extension...) Should the guide be allowed to be on non-rounded positions ? (maybe for print ?)</li>
+</ul><h3>
+<a name="thank-you" class="anchor" href="#thank-you"><span class="octicon octicon-link"></span></a>Thank you</h3>
+
+<p>Thanks to the creator of the <a href="http://code.google.com/p/inkscape-guides-creator/">Inkscape Guides Creator</a>, the extension which I used as a base for this one. Most of the work was already done, I just adapted it to my needs.</p>
+
+<h3>
+<a name="licence" class="anchor" href="#licence"><span class="octicon octicon-link"></span></a>Licence</h3>
+
+<p>Licence of the plugin : GPL v2, just like Inkscape</p>
+        </section>
+
+        <footer>
+          Inkscape Grid Maker is maintained by <a href="https://github.com/sambody">sambody</a><br>
+          This page was generated by <a href="http://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
