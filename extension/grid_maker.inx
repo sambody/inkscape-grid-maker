@@ -9,7 +9,7 @@
 
 	<param name="tab" type="notebook">
 		<page name="columns" _gui-text="Columns">
-			<param name="help_text1" type="description">Generate guides for equal columns grid</param>
+			<param name="description-cols" type="description">Generate guides for equal columns grid</param>
 			<param name="columns"  type="int"   min="1" max="500" _gui-text="Number of columns">12</param>
 			<param name="column_width"  type="int"   min="1" max="5000" _gui-text="Column width">50</param>
 			<param name="column_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter width (spacing between columns)">10</param>
@@ -22,7 +22,7 @@
 			<param name="delete_existing_guides" type="boolean" _gui-text="Delete existing guides">false</param>
 		</page>
 		<page name="rows" _gui-text="Rows">
-			<param name="help_text2" type="description">Generate guides for equal rows</param>
+			<param name="description-rows" type="description">Generate guides for equal rows</param>
 			<param name="rows"  type="int"   min="1" max="500" _gui-text="Number of rows">12</param>
 			<param name="row_height"  type="int"   min="1" max="5000" _gui-text="Row height">50</param>
 			<param name="row_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter height (spacing between rows)">10</param>
@@ -35,7 +35,7 @@
 			<param name="delete_existing_guides2" type="boolean" _gui-text="Delete existing guides">false</param>
 		</page>
 		<page name="help" _gui-text="Help">
-			<param name="help_text" type="description">This extension creates a series of guides in equal width columns or rows with gutters (the spacing between them). Gutter width can be zero. The grid can be aligned in relation to the borders of the page, or centered to the page, and can have an extra custom offset, which can be negative. The exact position of the guides are set in pixels (rounded values). More info: </param>
+			<param name="help_text" type="description">This extension allows you to create a grid - a series of guides to make equal width columns (or rows) with gutters - the spacing between columns. Gutter width can be zero. The generated grid can be aligned in relation to the borders of the page, or centered to the page, and can have an extra custom offset, which can be negative. The exact position of the guides are set in pixels (rounded values). Other units are not tested.</param>
 		</page>
 	</param>
 
