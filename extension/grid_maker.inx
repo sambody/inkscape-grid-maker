@@ -1,48 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension>
+
 	<_name>Guides grid maker</_name>
 	<id>com.samplify.gridmaker</id>
+
 	<dependency type="executable" location="extensions">grid_maker.py</dependency>
 	<dependency type="executable" location="extensions">inkex.py</dependency>
-		<param name="tab" type="notebook">
-				<page name="columns" _gui-text="Columns">
-					<param name="help_text1" type="description">Generate guides for equal columns grid</param>
-					<param name="columns"  type="int"   min="1" max="500" _gui-text="Number of columns">12</param>
-					<param name="column_width"  type="int"   min="1" max="5000" _gui-text="Column width">50</param>
-					<param name="column_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter width (spacing between columns)">10</param>
-					<param name="column_alignment" type="optiongroup" _gui-text="Alignment in relation to page">
-						<_option value="left">Left aligned</_option>
-						<_option value="centered">Centered</_option>
-						<_option value="right">Right aligned</_option>
-					</param>
-					<param name="column_offset"  type="int"   min="-5000" max="5000" _gui-text="Extra left offset of grid">0</param>
-					<param name="delete_existing_guides" type="boolean" _gui-text="Delete existing guides">false</param>
-				</page>
-				<page name="rows" _gui-text="Rows">
-					<param name="help_text2" type="description">Generate guides for equal rows</param>
-					<param name="rows"  type="int"   min="1" max="500" _gui-text="Number of rows">12</param>
-					<param name="row_height"  type="int"   min="1" max="5000" _gui-text="Row height">50</param>
-					<param name="row_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter height (spacing between rows)">10</param>
-					<param name="row_alignment" type="optiongroup" _gui-text="Alignment in relation to page">
-						<_option value="top">Top aligned</_option>
-						<_option value="centered">Centered</_option>
-						<_option value="bottom">Bottom aligned</_option>
-					</param>
-					<param name="row_offset"  type="int"   min="-5000" max="5000" _gui-text="Extra top offset of grid">0</param>
-					<param name="delete_existing_guides2" type="boolean" _gui-text="Delete existing guides">false</param>
-				</page>
-				<page name="help" _gui-text="Help">
-				      <param name="help_text" type="description">This extension allows you to create a grid - a series of guides to make equal width columns (or rows) with gutters - the spacing between columns. The generated grid can be aligned in relation to the borders of the page, or centered to the page, and can have an extra custom offset, which can be negative. Gutter width can be zero. The exact position of the guides are set in pixels (rounded values).</param>
-				</page>
-		</param>
+
+	<param name="tab" type="notebook">
+		<page name="columns" _gui-text="Columns">
+			<param name="help_text1" type="description">Generate guides for equal columns grid</param>
+			<param name="columns"  type="int"   min="1" max="500" _gui-text="Number of columns">12</param>
+			<param name="column_width"  type="int"   min="1" max="5000" _gui-text="Column width">50</param>
+			<param name="column_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter width (spacing between columns)">10</param>
+			<param name="column_alignment" type="optiongroup" _gui-text="Alignment in relation to page">
+				<_option value="left">Left aligned</_option>
+				<_option value="centered">Centered</_option>
+				<_option value="right">Right aligned</_option>
+			</param>
+			<param name="column_offset"  type="int"   min="-5000" max="5000" _gui-text="Extra left offset of grid">0</param>
+			<param name="delete_existing_guides" type="boolean" _gui-text="Delete existing guides">false</param>
+		</page>
+		<page name="rows" _gui-text="Rows">
+			<param name="help_text2" type="description">Generate guides for equal rows</param>
+			<param name="rows"  type="int"   min="1" max="500" _gui-text="Number of rows">12</param>
+			<param name="row_height"  type="int"   min="1" max="5000" _gui-text="Row height">50</param>
+			<param name="row_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter height (spacing between rows)">10</param>
+			<param name="row_alignment" type="optiongroup" _gui-text="Alignment in relation to page">
+				<_option value="top">Top aligned</_option>
+				<_option value="centered">Centered</_option>
+				<_option value="bottom">Bottom aligned</_option>
+			</param>
+			<param name="row_offset"  type="int"   min="-5000" max="5000" _gui-text="Extra top offset of grid">0</param>
+			<param name="delete_existing_guides2" type="boolean" _gui-text="Delete existing guides">false</param>
+		</page>
+		<page name="help" _gui-text="Help">
+			<param name="help_text" type="description">This extension creates a series of guides in equal width columns or rows with gutters (the spacing between them). Gutter width can be zero. The grid can be aligned in relation to the borders of the page, or centered to the page, and can have an extra custom offset, which can be negative. The exact position of the guides are set in pixels (rounded values). More info: </param>
+		</page>
+	</param>
+
 	<effect>
 		<object-type>all</object-type>
 		<effects-menu>
-			 <submenu _name="Render"/>
+			<submenu _name="Render"/>
 		</effects-menu>
 	</effect>
+
 	<script>
 		<command reldir="extensions" interpreter="python">grid_maker.py</command>
 	</script>
+
 </inkscape-extension>
 
