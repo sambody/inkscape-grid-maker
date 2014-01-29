@@ -9,7 +9,7 @@
 					<param name="help_text1" type="description">Generate guides for equal columns grid</param>
 					<param name="columns"  type="int"   min="1" max="500" _gui-text="Number of columns">12</param>
 					<param name="column_width"  type="int"   min="1" max="5000" _gui-text="Column width">50</param>
-					<param name="column_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter width">10</param>
+					<param name="column_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter width (spacing between columns)">10</param>
 					<param name="column_alignment" type="optiongroup" _gui-text="Alignment in relation to page">
 						<_option value="left">Left aligned</_option>
 						<_option value="centered">Centered</_option>
@@ -22,7 +22,7 @@
 					<param name="help_text2" type="description">Generate guides for equal rows</param>
 					<param name="rows"  type="int"   min="1" max="500" _gui-text="Number of rows">12</param>
 					<param name="row_height"  type="int"   min="1" max="5000" _gui-text="Row height">50</param>
-					<param name="row_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter height">10</param>
+					<param name="row_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter height (spacing between rows)">10</param>
 					<param name="row_alignment" type="optiongroup" _gui-text="Alignment in relation to page">
 						<_option value="top">Top aligned</_option>
 						<_option value="centered">Centered</_option>
