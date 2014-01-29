@@ -22,8 +22,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 # # # extension's begining # # #
 
-# These two lines are only needed if you don't put the script directly into
-# the installation directory
+# These two lines are only needed if you don't put the script directly into the installation directory
 import sys
 sys.path.append('/usr/share/inkscape/extensions')
 
@@ -31,18 +30,20 @@ sys.path.append('/usr/share/inkscape/extensions')
 import inkex
 from simplestyle import *
 
-#from xml.etree import ElementTree as ET
-
-# for printing debugging output
+# Allow for translation, later
 import gettext
 _ = gettext.gettext
 
+# For printing debugging output
 def printDebug(string):
         inkex.debug(_(str(string)))
-        # use:  printDebut(someVariable)
 
 def showError(string):
         inkex.errormsg(_(str(string)))
+
+# FUNCTIONS
+
+# TODO: rewrite functions, check for single/double; add to class ?
 
 def drawColumnGuides(columns,column_width,column_gutter,parent,horizontal_shift=0):
 
@@ -51,11 +52,11 @@ def drawColumnGuides(columns,column_width,column_gutter,parent,horizontal_shift=
 
         for i in range(0,columns+1):
 
-                #draw left guide of each column
+                #draw all left guides of each column
                 position1 = str(horizontal_shift + i*(column_gutter+column_width)) + ",0"
                 createGuide(position1,orientation,parent)
 
-                #draw right guide of each column
+                #draw all right guides of each column
                 position2 = str(horizontal_shift + i*(column_gutter+column_width) + column_gutter) + ",0"
                 createGuide(position2,orientation,parent)
 
@@ -66,18 +67,16 @@ def drawRowGuides(rows,row_height,row_gutter,parent,vertical_shift=0):
 
         for i in range(0,rows+1):
 
-                #draw top guide of each row (note: start with "0," - unlike columns)
+                # draw top guide of each row (note: start with "0," - unlike columns)
                 position1 =  "0," + str(vertical_shift + i*(row_gutter+row_height))
                 createGuide(position1,orientation,parent)
 
-                #draw bottom guide of each row
+                # draw bottom guide of each row
                 position2 = "0," + str(vertical_shift + i*(row_gutter+row_height) + row_gutter)
                 createGuide(position2,orientation,parent)
 
 def createGuide(position,orientation,parent):
         # Create a sodipodi:guide node
-        # (look into inkex's namespaces to find 'sodipodi' value in order to make a "sodipodi:guide" tag)
-        # see NSS array in file inkex.py for the other namespaces
         inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':position,'orientation':orientation})
 
 def deleteAllGuides(document):
@@ -87,9 +86,11 @@ def deleteAllGuides(document):
         # getting all the guides
         children = document.xpath('/svg:svg/sodipodi:namedview/sodipodi:guide',namespaces=inkex.NSS)
 
-        # removing each guides
+        # removing each guide
         for element in children:
                 nv.remove(element)
+
+# CLASS
 
 class Grid_Maker(inkex.Effect):
 
