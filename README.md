@@ -16,8 +16,8 @@ Example:
 ### Features
 
 With this extension, you can...
-- create columns with gutters (vertical guides), and rows with gutters (horizontal guides);
-- define the number of columns, the column width and gutter width to generate a grid; same with rows;
+- create **columns** with gutters (vertical guides), and **rows** with gutters (horizontal guides);
+- **define the number of columns, the column width and gutter width** to generate a grid; same with rows;
 - set the gutter width to zero to have evenly spaced guides;
 - choose to align the grid in relation to the page: left aligned, centered or right aligned;
 - add an extra horizontal/vertical offset, for example to generate the grid at a certain distance from the page border (when left/right aligned); this offset can be negative;
@@ -38,7 +38,7 @@ Restart or open Inkscape.
 
 ### Usage
 
-You will find the Guides Grid Maker under menu **Extensions > Render > Guides grid maker**. (so *not* Guides creator, and *not* Grid).
+You will find the Guides Grid Maker under menu **Extensions > Render > Guides grid maker**. (so *not* Guides creator, and *not* Grid). 
 
 Change the settings, click Apply. Close, done.
 
@@ -46,10 +46,10 @@ Or change the settings, show Live Preview of the changes, adjust, click Apply wh
 
 ### Tips
 
-- You can generate multiple grids on top of each other, just be sure to uncheck "*Delete existing guides*". 
+- You can generate **multiple grids** on top of each other, just be sure to uncheck "*Delete existing guides*". 
 - Need guides in the middle of your gutters? After generating the columns, generate a new grid with gutters set to zero, column width set to [original column width + gutter width].
-- You can position several grids side by side (for side by side web pages for example), using a very large offset (with left alignment for example).
-- Need a *baseline grid* in addition to the generated columns ? Use Inkscape's grids under File > Document Properties > Grids. Set a new rectangular grid with for example Spacing X = 2000, Spacing Y = 14.
+- You can position several generated **grids side by side** using a very large offset.
+- Need a **baseline grid** in addition to the generated columns ? Use Inkscape's grids under File > Document Properties > Grids. Set a new rectangular grid with for example Spacing X = 2000, Spacing Y = 14.
 
 ### Other grid related tools for web design
 
@@ -73,6 +73,7 @@ The Grid Maker extension generates guides, helpful for example in *designing* we
 - ~~Show total width when changing settings, calculated live.~~ I don't think that's possible in the interface.
 - Add other guides related extensions (generate with offset to page border, generate center guides, delete only horizontal/vertical guides,...), add Grid Maker together with these extensions in Extensions > Guides (instead of Render)
 - Make multi-lingual
+- Make written tutorial with images, make a screencast...
 
 ### Thank you
 
