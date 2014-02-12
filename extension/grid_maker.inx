@@ -18,7 +18,7 @@
 				<_option value="centered">Centered</_option>
 				<_option value="right">Right aligned</_option>
 			</param>
-			<param name="column_offset"  type="int"   min="-5000" max="5000" _gui-text="Extra left offset of grid">0</param>
+			<param name="column_offset"  type="int"   min="-5000" max="5000" _gui-text="Horizontal offset of grid (can be negative)">0</param>
 			<param name="delete_existing_guides" type="boolean" _gui-text="Delete existing guides">false</param>
 		</page>
 		<page name="rows" _gui-text="Rows">
@@ -31,7 +31,7 @@
 				<_option value="centered">Centered</_option>
 				<_option value="bottom">Bottom aligned</_option>
 			</param>
-			<param name="row_offset"  type="int"   min="-5000" max="5000" _gui-text="Extra top offset of grid">0</param>
+			<param name="row_offset"  type="int"   min="-5000" max="5000" _gui-text="Vertical offset of grid (can be negative)">0</param>
 			<param name="delete_existing_guides2" type="boolean" _gui-text="Delete existing guides">false</param>
 		</page>
 		<page name="help" _gui-text="Help">
