@@ -31,18 +31,18 @@ With this extension, you can...
 3. Open it. In the folder grid-maker-extension, you wil find two files: **grid_maker.inx** and **grid_maker.py**. Copy these two files into your Inkscape extensions folder:
 
 - on Windows: "C:\Program Files\Inkscape\share\extensions"
-- on Linux: " ~/.config/inkscape/extensions" (where "~" is /home/yourusername/)
+- on Linux: " /home/yourusername/.config/inkscape/extensions" (.config is a hidden folder)
 - on OS X: "/Applications/Inkscape.app/Contents/Resources/extensions" 
 
 Restart or open Inkscape.
 
 ### Usage
 
-You will find the Guides Grid Maker under menu **Extensions > Render > Guides grid maker**. (so *not* Guides creator, and *not* Grid). 
+You will find the Guides Grid Maker under menu **Extensions > Render > Guides grid maker**. (so *not* Guides creator, which takes a different approach, and *not* Grid, which generates lines instead of guides). 
 
 Change the settings, click Apply. Close, done.
 
-Or change the settings, show Live Preview of the changes, adjust, click Apply when satisfied. Close, done.
+Or change the settings, select Live Preview, adjust, click Apply when satisfied. Close, done.
 
 ### Tips
 
@@ -68,7 +68,7 @@ The Grid Maker extension generates guides, helpful for example in *designing* we
 - allow the choice to exclude the outer gutters/guides;
 - Align grid in relation to a selected bounding box, instead of the whole page ?
 - ~~Show offset option only when choosing Alignment with offset (or find better solution)~~ Offset is now available to all alignments
-- Outside in: Ability to set total width, or use page margins to set grid width ? And tehn set gutter width, with generated column width (no rounded pixels...)
+- Outside in: Ability to set total width, or use page margins to set grid width ? And then set gutter width, with generated column width (no rounded pixels...)
 - other units than pixels ? Milimeters ? (see other Grid Creator extension...) Should the guide be allowed to be on non-rounded positions ? (maybe for print ?)
 - ~~Show total width when changing settings, calculated live.~~ I don't think that's possible in the interface.
 - Add other guides related extensions (generate with offset to page border, generate center guides, delete only horizontal/vertical guides,...), add Grid Maker together with these extensions in Extensions > Guides (instead of Render)
@@ -81,5 +81,5 @@ Thanks to the creator of the [Inkscape Guides Creator](http://code.google.com/p/
 
 ### Licence
 
-Licence of the plugin : GPL v2, just like Inkscape
+Licence of the plugin : GPL v2, just like Inkscape  
 Author: [Samuel Dellicour](http://www.samplify.be)
