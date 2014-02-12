@@ -11,7 +11,7 @@ It is an alternative to positioning paths and converting them to guides, or to u
 
 Example:
 
-![grid maker in action](readme-img/inkscape-gridmaker.png)
+![grid maker in action](img/inkscape-gridmaker.png)
 
 ### Features
 
