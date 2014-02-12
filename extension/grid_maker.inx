@@ -9,7 +9,7 @@
 
 	<param name="tab" type="notebook">
 		<page name="columns" _gui-text="Columns">
-			<param name="description-cols" type="description">Generate guides for equal columns grid</param>
+			<param name="description-cols" type="description">Generate vertical guides for equal columns</param>
 			<param name="columns"  type="int"   min="1" max="500" _gui-text="Number of columns">12</param>
 			<param name="column_width"  type="int"   min="1" max="5000" _gui-text="Column width">50</param>
 			<param name="column_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter width (spacing between columns)">10</param>
@@ -19,10 +19,10 @@
 				<_option value="right">Right aligned</_option>
 			</param>
 			<param name="column_offset"  type="int"   min="-5000" max="5000" _gui-text="Horizontal offset of grid (can be negative)">0</param>
-			<param name="delete_existing_guides" type="boolean" _gui-text="Delete existing guides">false</param>
+			<param name="delete_vert_guides" type="boolean" _gui-text="Delete existing vertical guides before generating">false</param>
 		</page>
 		<page name="rows" _gui-text="Rows">
-			<param name="description-rows" type="description">Generate guides for equal rows</param>
+			<param name="description-rows" type="description">Generate horizontal guides for equal rows</param>
 			<param name="rows"  type="int"   min="1" max="500" _gui-text="Number of rows">12</param>
 			<param name="row_height"  type="int"   min="1" max="5000" _gui-text="Row height">50</param>
 			<param name="row_gutter"  type="int"   min="0" max="1000" _gui-text="Gutter height (spacing between rows)">10</param>
@@ -32,7 +32,7 @@
 				<_option value="bottom">Bottom aligned</_option>
 			</param>
 			<param name="row_offset"  type="int"   min="-5000" max="5000" _gui-text="Vertical offset of grid (can be negative)">0</param>
-			<param name="delete_existing_guides2" type="boolean" _gui-text="Delete existing guides">false</param>
+			<param name="delete_hor_guides" type="boolean" _gui-text="Delete existing horizontal guides before generating">false</param>
 		</page>
 		<page name="help" _gui-text="Help">
 			<param name="help_text" type="description">This extension allows you to create a grid - a series of guides to make equal width columns (or rows) with gutters - the spacing between columns. Gutter width can be zero. The generated grid can be aligned in relation to the borders of the page, or centered to the page, and can have an extra custom offset, which can be negative. The exact position of the guides are set in pixels (rounded values). Other units are not tested.</param>

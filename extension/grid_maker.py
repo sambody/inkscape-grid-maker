@@ -79,16 +79,25 @@ def createGuide(position,orientation,parent):
         # Create a sodipodi:guide node
         inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':position,'orientation':orientation})
 
-def deleteAllGuides(document):
+def deleteTargetGuides(document, target):
         # getting the parent's tag of the guides
         nv = document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
 
         # getting all the guides
         children = document.xpath('/svg:svg/sodipodi:namedview/sodipodi:guide',namespaces=inkex.NSS)
 
-        # removing each guide
-        for element in children:
-                nv.remove(element)
+        # depending on which type of guide to remove, remove them
+        if (target == 'all'):
+                for element in children:
+                        nv.remove(element)
+        elif (target == 'horizontal'):
+                for element in children:
+                        if (element.get('orientation') == '0,1'):
+                                nv.remove(element)
+        elif (target == 'vertical'):
+                for element in children:
+                        if (element.get('orientation') == '1,0'):
+                                nv.remove(element)
 
 # CLASS
 
@@ -108,7 +117,7 @@ class Grid_Maker(inkex.Effect):
                         dest="tab", default="columns",
                         help="")
 
-                # COLUMNS
+                # COLUMNS (vertical guides)
 
                 # Define string option "--column_alignment"
                 self.OptionParser.add_option('--column_alignment',
@@ -140,13 +149,13 @@ class Grid_Maker(inkex.Effect):
                         dest = 'column_gutter',default = 0,
                         help = 'Spacing between columns')
 
-                # Define boolean option "--delete_existing_guides"
-                self.OptionParser.add_option('--delete_existing_guides',
+                # Define boolean option "--delete_vert_guides"
+                self.OptionParser.add_option('--delete_vert_guides',
                         action = 'store',type = 'inkbool',
-                        dest = 'delete_existing_guides',default = False,
-                        help = 'Delete existing guides')
+                        dest = 'delete_vert_guides',default = False,
+                        help = 'Delete existing vertical guides')
 
-                # ROWS
+                # ROWS (horizontal guides)
 
                 # Define string option "--row_alignment"
                 self.OptionParser.add_option('--row_alignment',
@@ -178,11 +187,11 @@ class Grid_Maker(inkex.Effect):
                         dest = 'row_gutter',default = 0,
                         help = 'Spacing between rows')
 
-                # Define boolean option "--delete_existing_guides"
-                self.OptionParser.add_option('--delete_existing_guides2',
+                # Define boolean option "--delete_hor_guides"
+                self.OptionParser.add_option('--delete_hor_guides',
                         action = 'store',type = 'inkbool',
-                        dest = 'delete_existing_guides2',default = False,
-                        help = 'Delete existing guides')
+                        dest = 'delete_hor_guides',default = False,
+                        help = 'Delete existing horizontal guides')
 
         def effect(self):
 
@@ -196,7 +205,7 @@ class Grid_Maker(inkex.Effect):
                 cols = int(self.options.columns)
                 col_width = int(self.options.column_width)
                 col_gut = int(self.options.column_gutter)
-                delete_existing = self.options.delete_existing_guides
+                delete_hor = self.options.delete_hor_guides
 
                 # second tab - rows
                 row_alignment = self.options.row_alignment
@@ -204,7 +213,7 @@ class Grid_Maker(inkex.Effect):
                 rows = int(self.options.rows)
                 row_height = int(self.options.row_height)
                 row_gut = int(self.options.row_gutter)
-                delete_existing2 = self.options.delete_existing_guides2
+                delete_vert = self.options.delete_vert_guides
 
                 # getting parent tag of the guides
                 nv = self.document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
@@ -224,9 +233,9 @@ class Grid_Maker(inkex.Effect):
 
                 if (tab == "\"columns\""):
 
-                        # delete existing guides if chosen
-                        if (delete_existing):
-                                deleteAllGuides(self.document)
+                        # delete existing vertical guides if chosen
+                        if (delete_vert):
+                                deleteTargetGuides(self.document, 'vertical')
 
                         # Set horizontal shift (starting position for drawing) depending on grid alignment
                         if (col_alignment == 'centered'):
@@ -246,9 +255,9 @@ class Grid_Maker(inkex.Effect):
 
                 elif (tab == "\"rows\""):
 
-                        # delete existing guides if chosen
-                        if (delete_existing2):
-                                deleteAllGuides(self.document)
+                        # delete existing horizontal guides if chosen
+                        if (delete_hor):
+                                deleteTargetGuides(self.document, 'horizontal')
 
                         # Set vertical shift depending on grid alignment (0,0 is at BOTTOM left of document)
                         if (row_alignment == 'top'):
