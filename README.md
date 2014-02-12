@@ -5,9 +5,9 @@ This [Inkscape](http://inkscape.org/) extension (plugin) will generate a grid (g
 
 > In graphic design, a **grid** is a structure (usually two-dimensional) made up of a series of intersecting straight (vertical, horizontal, and angular) or curved guide lines used to structure content. The grid serves as an armature on which a designer can organize graphic elements (images, glyphs, paragraphs) in a rational, easy to absorb manner. - [Wikipedia](http://en.wikipedia.org/wiki/Grid_%28graphic_design%29)
 
-It was conceived as a tool for grids in designing websites in Inkscape. The guides are therefore positioned using pixels, and use rounded numbers (they are set on the pixel). Not tested with other units.
+This extension was conceived as a tool for grids in designing websites in Inkscape. The guides are therefore positioned using pixels, and use rounded numbers (they are set on the pixel). Not tested with other units.
 
-It is an alternative to positioning paths and converting them to guides, or to using the Grids in the Document Properties, or to position guides manually.
+It is an alternative to positioning guides manually, or positioning paths and converting them to guides, or using the Grids in the Document Properties.
 
 Example:
 
@@ -15,13 +15,14 @@ Example:
 
 ### Features
 
-- Define number of columns, column width and gutter width to generate a grid;
-- Gutter width can be set to zero;
-- Choose to align the grid in relation to the page: left aligned, centered or right aligned;
-- On top of this alignment, you can set an offset from to the right (for columns), or down (for rows); this offset can be negative;
-- Can also generate rows with gutters (and offset);
-- Option to delete all existing guides before generating the new guides
-- Live preview to test different widths
+With this extension, you can...
+- create columns with gutters (vertical guides), and rows with gutters (horizontal guides);
+- define the number of columns, the column width and gutter width to generate a grid; same with rows;
+- set the gutter width to zero to have evenly spaced guides;
+- choose to align the grid in relation to the page: left aligned, centered or right aligned;
+- add an extra horizontal/vertical offset, for example to generate the grid at a certain distance from the page border (when left/right aligned); this offset can be negative;
+- optionnally delete all existing horizontal/vertical guides before generating the new guides;
+- see a preview using Live preview, to test different widths.
 
 ### How to install the extension
 
@@ -41,17 +42,14 @@ You will find the Guides Grid Maker under menu **Extensions > Render > Guides gr
 
 Change the settings, click Apply. Close, done.
 
-Or change the settings, show Live Preview of the changes, adjust, click Apply. Close, done.
-
-That's it.
+Or change the settings, show Live Preview of the changes, adjust, click Apply when satisfied. Close, done.
 
 ### Tips
 
-- You can generate multiple grids, just be sure to uncheck "*Delete existing guides*". 
+- You can generate multiple grids on top of each other, just be sure to uncheck "*Delete existing guides*". 
 - Need guides in the middle of your gutters? After generating the columns, generate a new grid with gutters set to zero, column width set to [original column width + gutter width].
-- You can position several grids side by side (for side by side web pages for example), using a very large offset, without changing your document.
-- No need for these outer gutters/guides? Just delete them manually.
-- Need a *baseline grid* in addition to the generated columns ? Instead of using this extension, use Inkscape's grids under File > Document Properties > Grids. Set a new rectangular grid with for example Spacing X = 2000, Spacing Y = 14.
+- You can position several grids side by side (for side by side web pages for example), using a very large offset (with left alignment for example).
+- Need a *baseline grid* in addition to the generated columns ? Use Inkscape's grids under File > Document Properties > Grids. Set a new rectangular grid with for example Spacing X = 2000, Spacing Y = 14.
 
 ### Other grid related tools for web design
 
@@ -63,16 +61,18 @@ Online grid generators and previewers - I sometimes use them to get the right wi
 
 The Grid Maker extension generates guides, helpful for example in *designing* websites. However, it does *not* create the css - you will have to do that yourself. Some ready made tools and frameworks that can help with grid based websites (in addition to learning css!): [variable grid system](http://grids.heroku.com/), [bootstrap](http://getbootstrap.com/), [foundation](http://foundation.zurb.com/), [susy](http://susy.oddbird.net/)  , and [many others](css grid framework)... or build your own...
 
-### To do (no promises...)
+### To do (no promises...) and ideas
 
-- when gutter set to zero, there should be single guides, not double guides;
+- when gutter set to zero, there should be single guides, not double guides (rewrite the function);
+- ~~Delete only horizontal/vertical guides, not all guides~~ Done
 - allow the choice to exclude the outer gutters/guides;
 - Align grid in relation to a selected bounding box, instead of the whole page ?
-- Show total width when changing settings, if possible.
 - ~~Show offset option only when choosing Alignment with offset (or find better solution)~~ Offset is now available to all alignments
-- Option to add guide in the middle of each gutter (if gutter width is even number...) - for now, you can add center gutters separately by generating a new grid
-- Ability to set total width ? And set gutter width, with automatic column width (no rounded pixels...)
+- Outside in: Ability to set total width, or use page margins to set grid width ? And tehn set gutter width, with generated column width (no rounded pixels...)
 - other units than pixels ? Milimeters ? (see other Grid Creator extension...) Should the guide be allowed to be on non-rounded positions ? (maybe for print ?)
+- ~~Show total width when changing settings, calculated live.~~ I don't think that's possible in the interface.
+- Add other guides related extensions (generate with offset to page border, generate center guides, delete only horizontal/vertical guides,...), add Grid Maker together with these extensions in Extensions > Guides (instead of Render)
+- Make multi-lingual
 
 ### Thank you
 
@@ -81,5 +81,4 @@ Thanks to the creator of the [Inkscape Guides Creator](http://code.google.com/p/
 ### Licence
 
 Licence of the plugin : GPL v2, just like Inkscape
-
-Author: Samuel Dellicour
+Author: [Samuel Dellicour](http://www.samplify.be)
