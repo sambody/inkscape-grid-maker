@@ -264,31 +264,24 @@ class Grid_Maker(inkex.Effect):
 
                 if (tab == "\"columns\""):
 
-                        # delete existing vertical guides if chosen
+                        # delete existing vertical guides
                         if (delete_vert):
                                 deleteGuidesByOrientation(self.document, 'vertical')
 
-                        # Set horizontal shift (starting position for drawing) depending on grid alignment
+                        # Set horizontal starting position (starting position for drawing) depending on grid alignment
                         if (col_alignment == 'left'):
-
                                 hor_start = col_offset
 
                         if (col_alignment == 'centered'):
-
                                 hor_start = round(canvas_width/2) - round(total_col_width/2) + col_offset
-
                                 # if no outer gutter, move start position
                                 if has_outer_col_gutter == False:
-
                                         hor_start = hor_start + col_gut
 
                         if (col_alignment == 'right'):
-
                                 hor_start = canvas_width - total_col_width + col_offset
-
                                 # if no outer gutter, move start position
                                 if has_outer_col_gutter == False:
-
                                         hor_start = hor_start + 2*col_gut
 
                         # create column guides with column_spacings
@@ -296,32 +289,24 @@ class Grid_Maker(inkex.Effect):
 
                 elif (tab == "\"rows\""):
 
-                        # delete existing horizontal guides if chosen
+                        # delete existing horizontal guides
                         if (delete_hor):
                                 deleteGuidesByOrientation(self.document, 'horizontal')
 
-                        # Set vertical shift depending on grid alignment (0,0 is at BOTTOM left of document)
+                        # Set vertical starting position depending on grid alignment (0,0 is at BOTTOM left of document)
                         if (row_alignment == 'top'):
-
                                 vert_start = round(canvas_height) - total_row_height - row_offset
-
                                 # if no outer gutter, move start position
                                 if has_outer_row_gutter == False:
-
                                         vert_start = vert_start + 2*row_gut
 
                         if (row_alignment == 'centered'):
-
                                 vert_start = round(canvas_height/2) - round(total_row_height/2) - row_offset
-
                                 # if no outer gutter, move start position
                                 if has_outer_row_gutter == False:
-
                                         vert_start = vert_start + row_gut
 
-
                         if (row_alignment == 'bottom'):
-
                                 vert_start =  -row_offset
 
                         # create row guides (draw bottom up)
