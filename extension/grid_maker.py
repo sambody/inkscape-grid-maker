@@ -66,23 +66,24 @@ def deleteGuidesByOrientation(document, orientation):
                         if (element.get('orientation') == '1,0'):
                                 namedview.remove(element)
 
-def createGuide(position,orientation,parent):
+# draw single guide
+# based on position (length), orientation ("horizontal/vertical"), parent (needed ??)
+def drawGuide(position, orientation, parent):
+        if orientation == "vertical":
+                orientationString = "1,0"
+                positionString = str(position) + ",0"
+        if orientation == "horizontal":
+                orientationString = "0,1"
+                positionString = "0," + str(position)
         # Create a sodipodi:guide node
-        inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':position,'orientation':orientation})
+        inkex.etree.SubElement(parent,'{http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd}guide',{'position':positionString,'orientation':orientationString})
+
 
 # Draw series of guides with or without gutter - same function called for columns and rows
 def drawDoubleGuides(colsRows, width, gutter, start_pos, has_outer_gutter, orientation, parent):
 
         # position of guide
         position = start_pos
-
-        # orientation
-        if (orientation == "vertical"):
-                orient = "1,0"
-        elif (orientation == "horizontal"):
-                orient = "0,1"
-        else:
-                printError("orientation is not valid")
 
         # Draw double guides (or single guides when no gutter)
         # i will have value 0 to colsRows
@@ -92,25 +93,17 @@ def drawDoubleGuides(colsRows, width, gutter, start_pos, has_outer_gutter, orien
                 # don't draw for first gutter if no outer gutter; don't draw if gutter = 0 to avoid duplicated guides
                 if not ( i==0 and has_outer_gutter == False) and gutter > 0:
 
-                        if (orientation == "vertical"):
-                                first_pos = str(position) + ",0"
-                        elif (orientation == "horizontal"):
-                                first_pos = "0," + str(position)
                         # draw the guide
-                        createGuide(first_pos, orient, parent)
+                        drawGuide(position, orientation, parent)
                         # move position
                         position = position + gutter
 
                 # Draw second guide of gutter
-                # don't draw for last gutter if no outer gutter; draw even if gutter = 0
+                # don't draw for last gutter if no outer gutter (ignore gutter 0)
                 if not ( i==colsRows and has_outer_gutter == False):
 
-                        if (orientation == "vertical"):
-                                second_pos = str(position) + ",0"
-                        elif (orientation == "horizontal"):
-                                second_pos = "0," + str(position)
                         # draw the guide
-                        createGuide(second_pos, orient, parent)
+                        drawGuide(position, orientation, parent)
                         # move position
                         position = position + width
 
