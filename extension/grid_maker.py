@@ -48,7 +48,7 @@ def printError(string):
 def deleteGuidesByOrientation(document, orientation):
 
         # getting the parent's tag of the guides
-        nv = document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
+        namedview = document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
 
         # getting all the guides
         children = document.xpath('/svg:svg/sodipodi:namedview/sodipodi:guide',namespaces=inkex.NSS)
@@ -56,15 +56,15 @@ def deleteGuidesByOrientation(document, orientation):
         # depending on which type of guide to remove, remove them
         if (orientation == 'all'):
                 for element in children:
-                        nv.remove(element)
+                        namedview.remove(element)
         elif (orientation == 'horizontal'):
                 for element in children:
                         if (element.get('orientation') == '0,1'):
-                                nv.remove(element)
+                                namedview.remove(element)
         elif (orientation == 'vertical'):
                 for element in children:
                         if (element.get('orientation') == '1,0'):
-                                nv.remove(element)
+                                namedview.remove(element)
 
 def createGuide(position,orientation,parent):
         # Create a sodipodi:guide node
@@ -129,7 +129,7 @@ class Grid_Maker(inkex.Effect):
 
                 # Define option for the tab.
                 self.OptionParser.add_option("--tab",
-                        action="store",type="string",
+                        action="store", type="string",
                         dest="tab", default="columns",
                         help="")
 
@@ -137,88 +137,88 @@ class Grid_Maker(inkex.Effect):
 
                 # Define string option "--column_alignment"
                 self.OptionParser.add_option('--column_alignment',
-                        action = 'store',type = 'string',
-                        dest = 'column_alignment',default = 'centered',
+                        action = 'store', type = 'string',
+                        dest = 'column_alignment', default = 'centered',
                         help = 'Alignment of the columns in relation to the document')
 
                 # Define string option "--column_offset"
                 self.OptionParser.add_option('--column_offset',
-                        action = 'store',type = 'string',
-                        dest = 'column_offset',default = '0',
+                        action = 'store', type = 'string',
+                        dest = 'column_offset', default = '0',
                         help = 'Offset distance from the left')
 
                 # Define string option "--columns"
                 self.OptionParser.add_option('--columns',
-                        action = 'store',type = 'string',
-                        dest = 'columns',default = 0,
+                        action = 'store', type = 'string',
+                        dest = 'columns', default = 0,
                         help = 'Number of columns')
 
                 # Define string option "--column_width"
                 self.OptionParser.add_option('--column_width',
-                        action = 'store',type = 'string',
-                        dest = 'column_width',default = 0,
+                        action = 'store', type = 'string',
+                        dest = 'column_width', default = 0,
                         help = 'Width of each column')
 
                 # Define string option "--column_gutter"
                 self.OptionParser.add_option('--column_gutter',
-                        action = 'store',type = 'string',
-                        dest = 'column_gutter',default = 0,
+                        action = 'store', type = 'string',
+                        dest = 'column_gutter', default = 0,
                         help = 'Spacing between columns')
 
                 # Define string option "--include_outer_col_gutter"
                 self.OptionParser.add_option('--include_outer_col_gutter',
-                        action = 'store',type = 'inkbool',
-                        dest = 'include_outer_col_gutter',default = True,
+                        action = 'store', type = 'inkbool',
+                        dest = 'include_outer_col_gutter', default = True,
                         help = 'Include outer gutters (double guides)')
 
                 # Define boolean option "--delete_vert_guides"
                 self.OptionParser.add_option('--delete_vert_guides',
-                        action = 'store',type = 'inkbool',
-                        dest = 'delete_vert_guides',default = False,
+                        action = 'store', type = 'inkbool',
+                        dest = 'delete_vert_guides', default = False,
                         help = 'Delete existing vertical guides')
 
                 # ROWS (horizontal guides)
 
                 # Define string option "--row_alignment"
                 self.OptionParser.add_option('--row_alignment',
-                        action = 'store',type = 'string',
-                        dest = 'row_alignment',default = 'centered',
+                        action = 'store', type = 'string',
+                        dest = 'row_alignment', default = 'centered',
                         help = 'Alignment of rows in relation to the document')
 
                 # Define string option "--row_offset"
                 self.OptionParser.add_option('--row_offset',
-                        action = 'store',type = 'string',
-                        dest = 'row_offset',default = '0',
+                        action = 'store', type = 'string',
+                        dest = 'row_offset', default = '0',
                         help = 'Offset distance from the top')
 
                 # Define string option "--rows"
                 self.OptionParser.add_option('--rows',
-                        action = 'store',type = 'string',
-                        dest = 'rows',default = 0,
+                        action = 'store', type = 'string',
+                        dest = 'rows', default = 0,
                         help = 'Number of rows')
 
                 # Define string option "--row_height"
                 self.OptionParser.add_option('--row_height',
-                        action = 'store',type = 'string',
-                        dest = 'row_height',default = 0,
+                        action = 'store', type = 'string',
+                        dest = 'row_height', default = 0,
                         help = 'Width of each row')
 
                 # Define string option "--row_gutter"
                 self.OptionParser.add_option('--row_gutter',
-                        action = 'store',type = 'string',
-                        dest = 'row_gutter',default = 0,
+                        action = 'store', type = 'string',
+                        dest = 'row_gutter', default = 0,
                         help = 'Spacing between rows')
 
                 # Define string option "--include_outer_row_gutter"
                 self.OptionParser.add_option('--include_outer_row_gutter',
-                        action = 'store',type = 'inkbool',
-                        dest = 'include_outer_row_gutter',default = True,
+                        action = 'store', type = 'inkbool',
+                        dest = 'include_outer_row_gutter', default = True,
                         help = 'Include outer gutters (double guides)')
 
                 # Define boolean option "--delete_hor_guides"
                 self.OptionParser.add_option('--delete_hor_guides',
-                        action = 'store',type = 'inkbool',
-                        dest = 'delete_hor_guides',default = False,
+                        action = 'store', type = 'inkbool',
+                        dest = 'delete_hor_guides', default = False,
                         help = 'Delete existing horizontal guides')
 
         def effect(self):
@@ -246,7 +246,7 @@ class Grid_Maker(inkex.Effect):
                 delete_vert = self.options.delete_vert_guides
 
                 # getting parent tag of the guides
-                nv = self.document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
+                namedview = self.document.xpath('/svg:svg/sodipodi:namedview',namespaces=inkex.NSS)[0]
 
                 # getting the main SVG document element (canvas)
                 svg = self.document.getroot()
@@ -292,7 +292,7 @@ class Grid_Maker(inkex.Effect):
                                         hor_start = hor_start + 2*col_gut
 
                         # create column guides with column_spacings
-                        drawDoubleGuides(cols, col_width, col_gut, hor_start, has_outer_col_gutter, "vertical", nv)
+                        drawDoubleGuides(cols, col_width, col_gut, hor_start, has_outer_col_gutter, "vertical", namedview)
 
                 elif (tab == "\"rows\""):
 
@@ -325,7 +325,7 @@ class Grid_Maker(inkex.Effect):
                                 vert_start =  -row_offset
 
                         # create row guides (draw bottom up)
-                        drawDoubleGuides(rows, row_height, row_gut, vert_start, has_outer_row_gutter, "horizontal", nv)
+                        drawDoubleGuides(rows, row_height, row_gut, vert_start, has_outer_row_gutter, "horizontal", namedview)
 
 
 
