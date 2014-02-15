@@ -38,7 +38,7 @@ _ = gettext.gettext
 def printDebug(string):
         inkex.debug(_(str(string)))
 
-def showError(string):
+def printError(string):
         inkex.errormsg(_(str(string)))
 
 # FUNCTIONS
