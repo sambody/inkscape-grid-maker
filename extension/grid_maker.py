@@ -45,6 +45,7 @@ def printError(string):
 
 # FUNCTIONS
 
+# Delete all/vertical/horizontal guides
 def deleteGuidesByOrientation(document, orientation):
 
         # getting the parent's tag of the guides
@@ -119,33 +120,6 @@ def drawDoubleGuides(colsRows, width, gutter, start_pos, has_outer_gutter, orien
                                 position = position + gutter
                                 drawGuide(position, orientation, parent)
                                 position = position + width
-
-
-# Draw series of guides with or without gutter - same function called for columns and rows
-def drawOLDDoubleGuides(colsRows, width, gutter, start_pos, has_outer_gutter, orientation, parent):
-
-        # position of guide
-        position = start_pos
-
-        # Draw double guides (or single guides when no gutter)
-        # i will have value 0 to colsRows
-        for i in range(0, colsRows+1):
-
-                # Draw first guide of gutter
-                # don't draw for first gutter if no outer gutter; don't draw if gutter = 0 to avoid duplicated guides
-                if not ( i==0 and has_outer_gutter == False) and gutter > 0:
-
-                        drawGuide(position, orientation, parent)
-                        # move position
-                        position = position + gutter
-
-                # Draw second guide of gutter
-                # don't draw for last gutter if no outer gutter (ignore gutter 0)
-                if not ( i==colsRows and has_outer_gutter == False):
-
-                        drawGuide(position, orientation, parent)
-                        # move position
-                        position = position + width
 
 
 # CLASS
