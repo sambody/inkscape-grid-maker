@@ -1,7 +1,7 @@
 Inkscape grid maker
 ===================
 
-This [Inkscape](http://inkscape.org/) extension (plugin) will generate a grid (guides actually) with **equal width columns (or rows) and gutters**.
+This [Inkscape](http://inkscape.org/) extension will generate a grid (guides actually) with **equal width columns (or rows) and gutters**.
 
 > In graphic design, a **grid** is a structure (usually two-dimensional) made up of a series of intersecting straight (vertical, horizontal, and angular) or curved guide lines used to structure content. The grid serves as an armature on which a designer can organize graphic elements (images, glyphs, paragraphs) in a rational, easy to absorb manner. - from [Wikipedia](http://en.wikipedia.org/wiki/Grid_%28graphic_design%29)
 
@@ -22,7 +22,7 @@ Example 2: Rows (horizontal guides), gutters set to 0, top aligned
 With this extension, you can...
 - create **columns** with gutters (vertical guides), and **rows** with gutters (horizontal guides);
 - **define the number of columns, the column width and gutter width** to generate a grid; same with rows;
-- set the gutter width to zero to have evenly spaced guides without gutters;
+- generate evenly spaced guides *without* gutters by setting gutter width to 0;
 - choose to align the grid in relation to the page: left aligned, centered or right aligned;
 - optionnally add an extra horizontal/vertical offset, for example to generate the grid at a certain distance from the page border (when left/right aligned); this offset can be negative; for columns, this offset is a shift to the right (when positive), for rows it is a shift down (when positive)
 - optionnally delete all existing horizontal/vertical guides before generating the new guides;
