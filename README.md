@@ -1,13 +1,9 @@
 Inkscape grid maker
 ===================
 
-This [Inkscape](http://inkscape.org/) extension will generate a grid (guides actually) with **equal width columns (or rows) and gutters**.
+This [Inkscape](http://inkscape.org/) extension will generate guides in a grid of **equal width columns or rows and gutters**.
 
 > In graphic design, a **grid** is a structure (usually two-dimensional) made up of a series of intersecting straight (vertical, horizontal, and angular) or curved guide lines used to structure content. The grid serves as an armature on which a designer can organize graphic elements (images, glyphs, paragraphs) in a rational, easy to absorb manner. - from [Wikipedia](http://en.wikipedia.org/wiki/Grid_%28graphic_design%29)
-
-This extension was originally conceived as a tool for grids in designing websites in Inkscape. The guides are therefore positioned using pixels, and use rounded numbers (they are set on the pixel). Not tested with other units.
-
-It is an alternative to positioning guides manually, or positioning paths and converting them to guides, or using the Grids in the Document Properties.
 
 Example 1: Columns (vertical guides), with gutters, centered on the document
 
@@ -16,6 +12,8 @@ Example 1: Columns (vertical guides), with gutters, centered on the document
 Example 2: Rows (horizontal guides), gutters set to 0, top aligned
 
 ![grid maker with rows](img/inkscape-gridmaker2.png)
+
+This extension was originally conceived as a tool for grids in designing websites in Inkscape. The guides are therefore positioned using pixels, and use rounded numbers (they are set on the pixel). Not tested with other units. It is an alternative to positioning guides manually, or positioning paths and converting them to guides, or using the Grids in the Document Properties.
 
 ### Features
 
