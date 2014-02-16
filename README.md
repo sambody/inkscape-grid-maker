@@ -68,11 +68,10 @@ The Grid Maker extension generates guides, helpful for example in *designing* we
 - ~~when gutter set to zero, there should be single guides, not double guides (rewrite the function);~~ Done
 - ~~Delete only horizontal/vertical guides, not all guides~~ Done
 - ~~allow the choice to exclude the outer gutters/guides;~~ Done
-- Align grid in relation to a selected bounding box, instead of the whole page ?
 - ~~Show offset option only when choosing Alignment with offset (or find better solution)~~ Offset is now available to all alignments
 - Outside in: Ability to set total width, or use page margins to set grid width ? And then set gutter width, with generated column width (no rounded pixels...)
 - other units than pixels ? Milimeters ? (see other Grid Creator extension...) Should the guide be allowed to be on non-rounded positions ? (maybe for print ?)
-- ~~Show total width when changing settings, calculated live.~~ I don't think that's possible in the interface.
+- Align grid in relation to a selected bounding box, instead of the document ?
 - Add other guides related extensions (generate with offset to page border, generate center guides, delete only horizontal/vertical guides,...), add Grid Maker together with these extensions in Extensions > Guides (instead of Render)
 - Make multi-lingual
 - Make written tutorial with images, make a screencast...
