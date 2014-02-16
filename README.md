@@ -9,9 +9,13 @@ This extension was originally conceived as a tool for grids in designing website
 
 It is an alternative to positioning guides manually, or positioning paths and converting them to guides, or using the Grids in the Document Properties.
 
-Example:
+Example 1: Columns (vertical guides), with gutters, centered on the document
 
-![grid maker in action](img/inkscape-gridmaker.png)
+![grid maker with columns](img/inkscape-gridmaker.png)
+
+Example 2: Rows (horizontal guides), gutters set to 0, top aligned
+
+![grid maker with rows](img/inkscape-gridmaker2.png)
 
 ### Features
 
