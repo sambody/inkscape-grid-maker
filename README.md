@@ -22,9 +22,9 @@ Example 2: Rows (horizontal guides), gutters set to 0, top aligned
 With this extension, you can...
 - create **columns** with gutters (vertical guides), and **rows** with gutters (horizontal guides);
 - **define the number of columns, the column width and gutter width** to generate a grid; same with rows;
-- set the gutter width to zero to have evenly spaced guides;
+- set the gutter width to zero to have evenly spaced guides without gutters;
 - choose to align the grid in relation to the page: left aligned, centered or right aligned;
-- add an extra horizontal/vertical offset, for example to generate the grid at a certain distance from the page border (when left/right aligned); this offset can be negative;
+- optionnally add an extra horizontal/vertical offset, for example to generate the grid at a certain distance from the page border (when left/right aligned); this offset can be negative; for columns, this offset is a shift to the right (when positive), for rows it is a shift down (when positive)
 - optionnally delete all existing horizontal/vertical guides before generating the new guides;
 - see a preview using Live preview, to test different widths.
 
@@ -42,16 +42,16 @@ Restart or open Inkscape.
 
 ### Usage
 
-You will find the Guides Grid Maker under menu **Extensions > Render > Guides grid maker**. (so *not* Guides creator, which takes a different approach, and *not* Grid, which generates lines instead of guides). 
+You will find the Guides Grid Maker under menu **Extensions > Render > Guides grid maker**.
 
 Change the settings, click Apply. Close, done.
 
-Or change the settings, select Live Preview, adjust, click Apply when satisfied. Close, done.
+Or change the settings, select Live Preview, adjust, **click Apply** to actually generate the guides. Close, done.
 
 ### Tips
 
-- You can generate **multiple grids** on top of each other, just be sure to uncheck "*Delete existing guides*". 
-- Need guides in the middle of your gutters? After generating the columns, generate a new grid with gutters set to zero, column width set to [original column width + gutter width].
+- You can generate **multiple grids** on top of each other, by using applying grids several times. Just be sure to uncheck "*Delete existing guides*". 
+- Need guides in the middle of your gutters? After generating the columns (with gutters set to *even* number), generate a new grid with gutters set to zero, column width set to [original column width + gutter width]. 
 - You can position several generated **grids side by side** using a very large offset.
 - Need a **baseline grid** in addition to the generated columns ? Use Inkscape's grids under File > Document Properties > Grids. Set a new rectangular grid with for example Spacing X = 2000, Spacing Y = 14.
 
@@ -67,9 +67,9 @@ The Grid Maker extension generates guides, helpful for example in *designing* we
 
 ### To do (no promises...) and ideas
 
-- when gutter set to zero, there should be single guides, not double guides (rewrite the function);
+- ~~when gutter set to zero, there should be single guides, not double guides (rewrite the function);~~ Done
 - ~~Delete only horizontal/vertical guides, not all guides~~ Done
-- allow the choice to exclude the outer gutters/guides;
+- ~~allow the choice to exclude the outer gutters/guides;~~ Done
 - Align grid in relation to a selected bounding box, instead of the whole page ?
 - ~~Show offset option only when choosing Alignment with offset (or find better solution)~~ Offset is now available to all alignments
 - Outside in: Ability to set total width, or use page margins to set grid width ? And then set gutter width, with generated column width (no rounded pixels...)
