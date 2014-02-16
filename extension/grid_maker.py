@@ -67,8 +67,8 @@ def deleteGuidesByOrientation(document, orientation):
                         if (element.get('orientation') == '1,0'):
                                 namedview.remove(element)
 
-# draw single guide
-# based on position (length), orientation ("horizontal/vertical"), parent (needed ??)
+# Draw single guide
+# based on position (length), orientation ("horizontal/vertical"), parent
 def drawGuide(position, orientation, parent):
 
         if orientation == "vertical":
@@ -87,18 +87,16 @@ def drawDoubleGuides(colsRows, width, gutter, start_pos, has_outer_gutter, orien
         # position of guide
         position = start_pos
 
-        # Draw double guides (or single guides when no gutter)
+        # Draw series of double guides (or single guides when no gutter)
         # i will have value 0 to colsRows
         for i in range(0, colsRows+1):
 
                 # if first or last gutter
                 if ( i == 0 or i == colsRows ):
-
                         # if no gutter, draw single guide
                         if gutter == 0:
                                 drawGuide(position, orientation, parent)
                                 position = position + width
-
                         # if gutter, draw single or double guide
                         else:
                                 if has_outer_gutter == False:
@@ -109,9 +107,9 @@ def drawDoubleGuides(colsRows, width, gutter, start_pos, has_outer_gutter, orien
                                         position = position + gutter
                                         drawGuide(position, orientation, parent)
                                         position = position + width
+
                 # other gutter (not first/last)
                 else:
-
                         if gutter == 0:
                                 drawGuide(position, orientation, parent)
                                 position = position + width
@@ -263,7 +261,7 @@ class Grid_Maker(inkex.Effect):
                 canvas_height = inkex.unittouu(svg.attrib['height'])
 
                 # total width (columns and gutters)
-                # TODO change total col/row width, instead of extra shift later
+                # TODO change total col/row width, instead of extra shift later; does not account for has_outer_gutter = false
                 total_col_width = cols*col_width + (cols+1)*col_gut
 
                 # total height (rows and gutters)
@@ -271,7 +269,7 @@ class Grid_Maker(inkex.Effect):
 
                 if (tab == "\"columns\""):
 
-                        # delete existing vertical guides
+                        # Delete existing vertical guides
                         if (delete_vert):
                                 deleteGuidesByOrientation(self.document, 'vertical')
 
@@ -291,12 +289,12 @@ class Grid_Maker(inkex.Effect):
                                 if has_outer_col_gutter == False:
                                         hor_start = hor_start + 2*col_gut
 
-                        # create column guides with column_spacings
+                        # Create column guides with column_spacings
                         drawDoubleGuides(cols, col_width, col_gut, hor_start, has_outer_col_gutter, "vertical", namedview)
 
                 elif (tab == "\"rows\""):
 
-                        # delete existing horizontal guides
+                        # Delete existing horizontal guides
                         if (delete_hor):
                                 deleteGuidesByOrientation(self.document, 'horizontal')
 
@@ -317,7 +315,7 @@ class Grid_Maker(inkex.Effect):
                         if (row_alignment == 'bottom'):
                                 vert_start =  -row_offset
 
-                        # create row guides
+                        # Create row guides
                         drawDoubleGuides(rows, row_height, row_gut, vert_start, has_outer_row_gutter, "horizontal", namedview)
 
 
