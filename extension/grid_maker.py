@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 '''
-Grid creator by Samuel Dellicour (www.samplify.be),
+Grid Maker by Samuel Dellicour (www.samplify.be),
 heavily based on Guides creator - Copyright (C) 2008 Jonas Termeau - jonas.termeau **AT** gmail.com
 
 
@@ -94,12 +94,12 @@ def drawDoubleGuides(colsRows, width, gutter, start_pos, has_outer_gutter, orien
                 # if first or last gutter
                 if ( i == 0 or i == colsRows ):
 
-                        # no gutter ? draw single guide
+                        # if no gutter, draw single guide
                         if gutter == 0:
                                 drawGuide(position, orientation, parent)
                                 position = position + width
 
-                        # gutter ? draw single or double guide
+                        # if gutter, draw single or double guide
                         else:
                                 if has_outer_gutter == False:
                                         drawGuide(position, orientation, parent)
@@ -109,7 +109,7 @@ def drawDoubleGuides(colsRows, width, gutter, start_pos, has_outer_gutter, orien
                                         position = position + gutter
                                         drawGuide(position, orientation, parent)
                                         position = position + width
-                # other gutter
+                # other gutter (not first/last)
                 else:
 
                         if gutter == 0:
@@ -300,7 +300,8 @@ class Grid_Maker(inkex.Effect):
                         if (delete_hor):
                                 deleteGuidesByOrientation(self.document, 'horizontal')
 
-                        # Set vertical starting position depending on grid alignment (0,0 is at BOTTOM left of document)
+                        # Set vertical starting position depending on grid alignment
+                        # 0,0 is at BOTTOM left of document, guides will be drawn bottom up
                         if (row_alignment == 'top'):
                                 vert_start = round(canvas_height) - total_row_height - row_offset
                                 # if no outer gutter, move start position
@@ -316,9 +317,8 @@ class Grid_Maker(inkex.Effect):
                         if (row_alignment == 'bottom'):
                                 vert_start =  -row_offset
 
-                        # create row guides (draw bottom up)
+                        # create row guides
                         drawDoubleGuides(rows, row_height, row_gut, vert_start, has_outer_row_gutter, "horizontal", namedview)
-
 
 
 # Create effect instance and apply it.
