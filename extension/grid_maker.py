@@ -260,12 +260,17 @@ class Grid_Maker(inkex.Effect):
                 canvas_width  = inkex.unittouu(svg.get('width'))
                 canvas_height = inkex.unittouu(svg.attrib['height'])
 
-                # total width (columns and gutters)
-                # TODO change total col/row width, instead of extra shift later; does not account for has_outer_gutter = false
-                total_col_width = cols*col_width + (cols+1)*col_gut
+                # total width  (columns and gutters)
+                if has_outer_col_gutter:
+                        total_col_width = cols*col_width + (cols+1)*col_gut
+                else:
+                        total_col_width = cols*col_width + (cols-1)*col_gut
 
                 # total height (rows and gutters)
-                total_row_height = rows*row_height + (rows+1)*row_gut
+                if has_outer_row_gutter:
+                        total_row_height = rows*row_height + (rows+1)*row_gut
+                else:
+                        total_row_height = rows*row_height + (rows-1)*row_gut
 
                 if (tab == "\"columns\""):
 
@@ -273,21 +278,15 @@ class Grid_Maker(inkex.Effect):
                         if (delete_vert):
                                 deleteGuidesByOrientation(self.document, 'vertical')
 
-                        # Set horizontal starting position (starting position for drawing) depending on grid alignment
+                        # Set horizontal starting position, depending on grid alignment
                         if (col_alignment == 'left'):
                                 hor_start = col_offset
 
                         if (col_alignment == 'centered'):
                                 hor_start = round(canvas_width/2) - round(total_col_width/2) + col_offset
-                                # if no outer gutter, move start position
-                                if has_outer_col_gutter == False:
-                                        hor_start = hor_start + col_gut
 
                         if (col_alignment == 'right'):
                                 hor_start = canvas_width - total_col_width + col_offset
-                                # if no outer gutter, move start position
-                                if has_outer_col_gutter == False:
-                                        hor_start = hor_start + 2*col_gut
 
                         # Create column guides with column_spacings
                         drawDoubleGuides(cols, col_width, col_gut, hor_start, has_outer_col_gutter, "vertical", namedview)
@@ -298,19 +297,13 @@ class Grid_Maker(inkex.Effect):
                         if (delete_hor):
                                 deleteGuidesByOrientation(self.document, 'horizontal')
 
-                        # Set vertical starting position depending on grid alignment
+                        # Set vertical starting position, depending on grid alignment
                         # 0,0 is at BOTTOM left of document, guides will be drawn bottom up
                         if (row_alignment == 'top'):
                                 vert_start = round(canvas_height) - total_row_height - row_offset
-                                # if no outer gutter, move start position
-                                if has_outer_row_gutter == False:
-                                        vert_start = vert_start + 2*row_gut
 
                         if (row_alignment == 'centered'):
                                 vert_start = round(canvas_height/2) - round(total_row_height/2) - row_offset
-                                # if no outer gutter, move start position
-                                if has_outer_row_gutter == False:
-                                        vert_start = vert_start + row_gut
 
                         if (row_alignment == 'bottom'):
                                 vert_start =  -row_offset
