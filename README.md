@@ -53,6 +53,10 @@ Or change the settings, select Live Preview, adjust, **click Apply** to actually
 - You can position several generated **grids side by side** using a very large offset.
 - Need a **baseline grid** in addition to the generated columns ? Use Inkscape's grids under File > Document Properties > Grids. Set a new rectangular grid with for example Spacing X = 2000, Spacing Y = 14.
 
+### Other inkscape guide extensions
+
+- I have also made [a series of other guides related inkscape extensions](https://github.com/sambody/inkscape-guide-tools), to add guides through the center of the document, add margin guides, remove guides, etc.
+
 ### Other grid related tools for web design
 
 Online grid generators and previewers - I sometimes use them to get the right widths *before* using my extension: 
