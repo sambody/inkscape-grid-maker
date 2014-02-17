@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inkscape-extension>
 
-	<_name>Guides grid maker</_name>
+	<_name>Add Guides in Grid</_name>
 	<id>com.samplify.gridmaker</id>
 
 	<dependency type="executable" location="extensions">grid_maker.py</dependency>
@@ -46,7 +46,7 @@
 	<effect>
 		<object-type>all</object-type>
 		<effects-menu>
-			<submenu _name="Render"/>
+			<submenu _name="Guides"/>
 		</effects-menu>
 	</effect>
 
