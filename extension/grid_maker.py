@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 '''
-Grid Maker by Samuel Dellicour (www.samplify.be),
+Grid Maker by Samuel Dellicour - www.samplify.be,
 heavily based on Guides creator - Copyright (C) 2008 Jonas Termeau - jonas.termeau **AT** gmail.com
 
 
