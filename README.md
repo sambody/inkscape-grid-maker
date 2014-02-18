@@ -60,7 +60,7 @@ Or change the settings, select Live Preview, adjust, **click Apply** to actually
 
 ### Other inkscape guide extensions
 
-- I have also made [a series of other guides related inkscape extensions](https://github.com/sambody/inkscape-guide-tools), to add guides through the center of the document, add margin guides and remove guides.
+- I have also made [a series of other guide related inkscape extensions](https://github.com/sambody/inkscape-guide-tools): extensions to add guides through the center of the document, add margin guides and remove selected guides.
 
 ### Other grid related tools for web design
 
@@ -72,7 +72,7 @@ Online grid generators and previewers - I sometimes use them to get the right wi
 
 The Grid Maker extension generates guides, helpful for example in *designing* websites. However, it does *not* create the css - you will have to do that yourself. Some ready made tools and frameworks that can help with grid based websites (in addition to learning css!): [variable grid system](http://grids.heroku.com/), [bootstrap](http://getbootstrap.com/), [foundation](http://foundation.zurb.com/), [susy](http://susy.oddbird.net/)  , and [many others](css grid framework)... or build your own...
 
-### To do (no promises...) and ideas
+### To do and ideas
 
 - ~~when gutter set to zero, there should be single guides, not double guides (rewrite the function);~~ Done
 - ~~Delete only horizontal/vertical guides, not all guides~~ Done
