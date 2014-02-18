@@ -40,7 +40,7 @@ Restart or open Inkscape.
 
 ### Usage
 
-You will find the Guides Grid Maker under menu **Extensions > Guides > Add Guides in Grid**.
+You will find the Guides Grid Maker under menu **Extensions > Guides > Add Grid Guides**.
 
 Change the settings, click Apply. Close, done.
 
