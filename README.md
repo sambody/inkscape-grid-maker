@@ -26,11 +26,6 @@ With this extension, you can...
 - optionnally delete all existing horizontal/vertical guides before generating the new guides;
 - see a preview using Live preview, to test different widths.
 
-### Limitations
-
-- This extension was originally made for web design, so using round pixels. (Other units than pixels are not tested)
-- The plugin calculates the grid "inside out": it uses the number of columns, **columns width**, and gutter width as input, and creates the grid guidelines. However, at the moment, it is not possible to create the grid "outside in" - starting with a defined **total width** (predefined, or related to the page width), the number of columns, and the gutter width,  and then calculating the column width to draw the guides. I might make such an extension in the future though... If you need to divide your page with equal width columns *without* gutters, use Extensions > Render > Grid Creator.
-
 ### How to install the extension
 
 1. Download zip archive from current site (github) to your computer;
@@ -51,16 +46,21 @@ Change the settings, click Apply. Close, done.
 
 Or change the settings, select Live Preview, adjust, **click Apply** to actually generate the guides. Close, done.
 
+### Limitations
+
+- This extension was originally made for web design, so using round pixels. (Other units than pixels are not tested)
+- The plugin calculates the grid "inside out": it uses the number of columns, **columns width**, and gutter width as input, and creates the grid guidelines. However, at the moment, it is not possible to create the grid "outside in" - starting with a defined **total width** (predefined, or related to the page width), the number of columns, and the gutter width,  and then calculating the column width to draw the guides. I might make such an extension in the future though... If you need to divide your page with equal width columns *without* gutters, use Extensions > Render > Grid Creator.
+
 ### Tips
 
-- You can generate **multiple grids** on top of each other, by using applying grids several times. Just be sure to uncheck "*Delete existing guides*". 
-- Need guides in the middle of your gutters? After generating the columns (with gutters set to *even* number), generate a new grid with gutters set to zero, column width set to [original column width + gutter width]. 
+- You can generate **multiple grids** on top of each other, by applying grids several times. Just be sure to uncheck "*Delete existing guides*". 
+- Need guides in the middle of your gutters? After generating the columns (with gutters set to *even* number), generate a new grid with gutters set to zero, column width set to [original column width + gutter width]. If you need guides on round pixels, use an even number for gutter width.
 - You can position several generated **grids side by side** using a very large offset.
 - Need a **baseline grid** in addition to the generated columns ? Use Inkscape's grids under File > Document Properties > Grids. Set a new rectangular grid with for example Spacing X = 2000, Spacing Y = 14.
 
 ### Other inkscape guide extensions
 
-- I have also made [a series of other guides related inkscape extensions](https://github.com/sambody/inkscape-guide-tools), to add guides through the center of the document, add margin guides, remove guides, etc.
+- I have also made [a series of other guides related inkscape extensions](https://github.com/sambody/inkscape-guide-tools), to add guides through the center of the document, add margin guides and remove guides.
 
 ### Other grid related tools for web design
 
