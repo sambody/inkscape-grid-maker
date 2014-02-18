@@ -26,6 +26,11 @@ With this extension, you can...
 - optionnally delete all existing horizontal/vertical guides before generating the new guides;
 - see a preview using Live preview, to test different widths.
 
+### Limitations
+
+- This extension was originally made for web design, so using round pixels. (Other units than pixels are not tested)
+- The plugin calculates the grid "inside out": it uses the number of columns, **columns width**, and gutter width as input, and creates the grid guidelines. However, at the moment, it is not possible to create the grid "outside in" - starting with a defined **total width** (predefined, or related to the page width), the number of columns, and the gutter width,  and then calculating the column width to draw the guides. I might make such an extension in the future though... If you need to divide your page with equal width columns *without* gutters, use Extensions > Render > Grid Creator.
+
 ### How to install the extension
 
 1. Download zip archive from current site (github) to your computer;
@@ -76,8 +81,9 @@ The Grid Maker extension generates guides, helpful for example in *designing* we
 - Outside in: Ability to set total width, or use page margins to set grid width ? And then set gutter width, with generated column width (no rounded pixels...)
 - other units than pixels ? Milimeters ? (see other Grid Creator extension...) Should the guide be allowed to be on non-rounded positions ? (maybe for print ?)
 - Align grid in relation to a selected bounding box, instead of the document ?
-- Add other guides related extensions (generate with offset to page border, generate center guides, delete only horizontal/vertical guides,...), add Grid Maker together with these extensions in Extensions > Guides (instead of Render)
-- Make multi-lingual
+- ~~Add other guides related extensions (generate with offset to page border, generate center guides, delete only horizontal/vertical guides,...)~~ - Done
+- ~~Add Grid Maker together with these extensions in Extensions > Guides (instead of Render)~~ - Done
+- ~~Make multi-lingual~~ - doesn't work for individual extensions not part of inkscape (but the files are technicallly ready to be translated)
 - Make written tutorial with images, make a screencast...
 
 ### Thank you
