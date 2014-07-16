@@ -127,7 +127,8 @@ class Grid_Maker(inkex.Effect):
 		# Call the base class constructor.
 		inkex.Effect.__init__(self)
 
-		# Define option for the tab.
+		# Parse options and store them in self.options.[destination]
+
 		self.OptionParser.add_option("--tab",
 				action="store", type="string",
 				dest="tab", default="columns",
@@ -209,7 +210,7 @@ class Grid_Maker(inkex.Effect):
 
 	def effect(self):
 
-		# Get script's options value.
+		# Get script's option values from self.options
 
 		tab = self.options.tab
 

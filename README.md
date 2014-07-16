@@ -1,19 +1,19 @@
 Inkscape grid maker
 ===================
 
-This [Inkscape](http://inkscape.org/) extension will generate guides in a grid of **equal width columns or rows and gutters**.
+This [Inkscape](http://inkscape.org/) extension will generate guides in a grid of **equal width columns (or rows) and gutters**.
 
-> In graphic design, a **grid** is a structure (usually two-dimensional) made up of a series of intersecting straight (vertical, horizontal, and angular) or curved guide lines used to structure content. The grid serves as an armature on which a designer can organize graphic elements (images, glyphs, paragraphs) in a rational, easy to absorb manner. - from [Wikipedia](http://en.wikipedia.org/wiki/Grid_%28graphic_design%29)
-
-Example 1: Columns (vertical guides), with gutters, centered on the document
+**Example 1**: Columns (vertical guides), with gutters (spacing between columns), centered on the document
 
 ![grid maker with columns](img/inkscape-gridmaker.png)
 
-Example 2: Rows (horizontal guides), gutters set to 0, top aligned
+**Example 2**: Rows (horizontal guides), gutters set to 0, top aligned
 
 ![grid maker with rows](img/inkscape-gridmaker2.png)
 
-This extension was originally conceived as a tool for grids in designing websites in Inkscape. The guides are therefore positioned using pixels, and use rounded numbers (they are set on the pixel). Not tested with other units. It is an alternative to positioning guides manually, or positioning paths and converting them to guides, or using the Grids in the Document Properties.
+This extension was conceived as a tool for grids in designing websites in Inkscape. The guides are therefore positioned using pixels, and use rounded numbers (they are set on the pixel). Not tested with other units. 
+
+It is an alternative to positioning guides manually, or positioning paths and converting them to guides, or using the Grids in the Document Properties.
 
 ### Features
 
@@ -49,7 +49,7 @@ Or change the settings, select Live Preview, adjust, **click Apply** to actually
 ### Limitations
 
 - This extension was originally made for web design, so using round pixels. (Other units than pixels are not tested)
-- The plugin calculates the grid "inside out": it uses the number of columns, **columns width**, and gutter width as input, and creates the grid guidelines. However, at the moment, it is not possible to create the grid "outside in" - starting with a defined **total width** (predefined, or related to the page width), the number of columns, and the gutter width,  and then calculating the column width to draw the guides. I might make such an extension in the future though... If you need to divide your page with equal width columns *without* gutters, use Extensions > Render > Grid Creator.
+- The plugin calculates the grid "inside out": it uses **the number of columns, columns width, and gutter width** as input, and creates the grid guidelines. However, at the moment, it is not possible to create the grid "outside in" - starting with a defined **total width** (predefined, or related to the page width), the number of columns, and the gutter width,  and then calculating the column width to draw the guides. I might make such an extension in the future though... If you need to divide your page with equal width columns *without* gutters, use Extensions > Render > Grid Creator (part of Inkscape default installation).
 
 ### Tips
 
@@ -70,8 +70,6 @@ Online grid generators and previewers - I sometimes use them to get the right wi
 - [variable grid system](http://grids.heroku.com/) - can actually generate css classes, just input the same numbers you used for designing your grid (fluid and fixed grid)
 - [grid calculator and generator](Grid calculator and generator) - set a fixed total width, give a range of column/gutter width, get possible combinations
 
-The Grid Maker extension generates guides, helpful for example in *designing* websites. However, it does *not* create the css - you will have to do that yourself. Some ready made tools and frameworks that can help with grid based websites (in addition to learning css!): [variable grid system](http://grids.heroku.com/), [bootstrap](http://getbootstrap.com/), [foundation](http://foundation.zurb.com/), [susy](http://susy.oddbird.net/)  , and [many others](css grid framework)... or build your own...
-
 ### To do and ideas
 
 - ~~when gutter set to zero, there should be single guides, not double guides (rewrite the function);~~ Done
@@ -85,10 +83,11 @@ The Grid Maker extension generates guides, helpful for example in *designing* we
 - ~~Add Grid Maker together with these extensions in Extensions > Guides (instead of Render)~~ - Done
 - ~~Make multi-lingual~~ - doesn't work for individual extensions not part of inkscape (but the files are technicallly ready to be translated)
 - Make written tutorial with images, make a screencast...
+- Merge this extension with my Inkscape Guide tools
 
 ### Thank you
 
-Thanks to the creator of the [Inkscape Guides Creator](http://code.google.com/p/inkscape-guides-creator/), the extension which I used as a base for this one. Most of the work was already done, I just adapted it to my needs.
+Many thanks to the creator of the [Inkscape Guides Creator](http://code.google.com/p/inkscape-guides-creator/), the extension which I used as a base for this one. Most of the work was already done, I just adapted it to my needs.
 
 ### Licence
 
