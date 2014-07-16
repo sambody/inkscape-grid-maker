@@ -1,3 +1,7 @@
+# UPDATE: This repository is no longer maintained. 
+
+This grid generating extension has moved to my **[Inkscape guide tools](https://github.com/sambody/inkscape-guide-tools)**, which bundles it with other guide extensions. In that bundle, Grid Maker has been renamed to Add Grid Guides.
+
 Inkscape grid maker
 ===================
 
